@@ -8,6 +8,9 @@ use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 use SlamPhpStan\StringToClassRule;
 
+/**
+ * @covers \SlamPhpStan\StringToClassRule
+ */
 final class StringToClassRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

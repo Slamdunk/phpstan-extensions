@@ -8,6 +8,9 @@ use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 use SlamPhpStan\GotoRule;
 
+/**
+ * @covers \SlamPhpStan\GotoRule
+ */
 final class GotoRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

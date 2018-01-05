@@ -16,3 +16,8 @@ Execute:
 
 1. `SlamPhpStan\StringToClassRule`: requires strings that refer to classes to be expressed with `::class` notation
 1. `SlamPhpStan\GotoRule`: no goto allowed
+1. `SlamPhpStan\ClassNotationRule`:
+    1. Interfaces must end with "Interface"
+    1. Traits must end with "Trait"
+    1. Abstract classes must start with "Abstract"
+    1. Exceptions must end with "Exception"
