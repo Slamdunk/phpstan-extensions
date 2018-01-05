@@ -1,0 +1,31 @@
+{
+    "name": "slam/phpstan-extensions",
+    "description": "Slam extension of phpstan",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Filippo Tessarotto",
+            "email": "zoeslam@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "phpstan/phpstan": "^0.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "roave/security-advisories": "dev-master",
+        "slam/php-debug-r": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SlamPhpStan\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SlamPhpStan\\Tests\\": "tests/"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+language: php
+
+sudo: false
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1
+      env: CS_CHECK=1
+    - php: 7.2
+      env: CODE_COVERAGE=1
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+install: wget -qO - https://github.com/Slamdunk/travis-scripts/raw/master/php-install.sh | sh
+
+script: wget -qO - https://github.com/Slamdunk/travis-scripts/raw/master/php-script.sh | sh
+
+notifications:
+  email: false
