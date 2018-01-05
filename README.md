@@ -14,4 +14,5 @@ Execute:
 
 ## Rules
 
-1. `SlamPhpStan\StringToClassRule`: requires strings that refers to classes to be expressed with `::class` notation
+1. `SlamPhpStan\StringToClassRule`: requires strings that refer to classes to be expressed with `::class` notation
+1. `SlamPhpStan\GotoRule`: no goto allowed
