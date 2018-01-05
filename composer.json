@@ -16,6 +16,7 @@
     "require-dev": {
         "phpunit/phpunit": "^6.5",
         "roave/security-advisories": "dev-master",
+        "slam/php-cs-fixer-extensions": "^1.12",
         "slam/php-debug-r": "^1.2"
     },
     "autoload": {

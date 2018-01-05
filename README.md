@@ -11,3 +11,7 @@ Extensions for [PHPStan](https://github.com/phpstan/phpstan)
 Execute:
 
 `composer require --dev slam/phpstan-extensions`
+
+## Rules
+
+1. `SlamPhpStan\StringToClassRule`: requires strings that refers to classes to be expressed with `::class` notation
