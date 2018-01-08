@@ -30,3 +30,5 @@ C::class;
 E::class;
 F::class;
 G::class;
+
+$var = new class {};

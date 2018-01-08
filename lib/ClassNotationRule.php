@@ -34,9 +34,13 @@ final class ClassNotationRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        $name = $node->name;
-        $fqcn = $node->namespacedName->toString();
         $messages = [];
+        $name = $node->name;
+        if (0 === \strpos($name, 'AnonymousClass')) {
+            return $messages;
+        }
+
+        $fqcn = $node->namespacedName->toString();
         if ($node instanceof Interface_) {
             if (! \preg_match('/Interface$/', $name)) {
                 $messages[] = \sprintf('Interface %s should end with "Interface" suffix.', $fqcn);
