@@ -16,6 +16,12 @@ final class GotoRule implements Rule
         return Goto_::class;
     }
 
+    /**
+     * @param \PhpParser\Node\Stmt\Goto_ $node
+     * @param \PHPStan\Analyser\Scope    $scope
+     *
+     * @return string[] errors
+     */
     public function processNode(Node $node, Scope $scope): array
     {
         return ['No goto, cmon!'];

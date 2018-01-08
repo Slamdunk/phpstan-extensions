@@ -24,6 +24,12 @@ final class StringToClassRule implements Rule
         return String_::class;
     }
 
+    /**
+     * @param \PhpParser\Node\Scalar\String_ $node
+     * @param \PHPStan\Analyser\Scope        $scope
+     *
+     * @return string[] errors
+     */
     public function processNode(Node $node, Scope $scope): array
     {
         $className = $node->value;

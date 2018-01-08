@@ -1,0 +1,10 @@
+includes:
+    - vendor/phpstan/phpstan/conf/config.levelmax.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-php-parser/extension.neon
+    - conf/slam-rules.neon
+    - conf/thecodingmachine-rules.neon
+
+parameters:
+    excludes_analyse:
+        - tests/TestAsset/

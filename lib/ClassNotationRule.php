@@ -26,6 +26,12 @@ final class ClassNotationRule implements Rule
         return ClassLike::class;
     }
 
+    /**
+     * @param \PhpParser\Node\Stmt\ClassLike $node
+     * @param \PHPStan\Analyser\Scope        $scope
+     *
+     * @return string[] errors
+     */
     public function processNode(Node $node, Scope $scope): array
     {
         $name = $node->name;
