@@ -4,10 +4,6 @@ services:
         tags:
             - phpstan.rules.rule
     -
-        class: TheCodingMachine\PHPStan\Rules\Exceptions\EmptyExceptionRule
-        tags:
-            - phpstan.rules.rule
-    -
         class: TheCodingMachine\PHPStan\Rules\Exceptions\ThrowMustBundlePreviousExceptionRule
         tags:
             - phpstan.rules.rule
