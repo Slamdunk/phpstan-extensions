@@ -34,6 +34,9 @@ final class StringToClassRule implements Rule
     {
         $className = $node->value;
         $messages = [];
+        if (empty($className)) {
+            return $messages;
+        }
         if (! $this->broker->hasClass($className)) {
             return $messages;
         }
