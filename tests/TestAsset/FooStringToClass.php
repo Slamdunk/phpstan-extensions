@@ -15,3 +15,6 @@ $var = 'DateTimeImmutable';
 $var = 'stdClass';
 
 $var = '';
+$var = '\\';
+$var = '_';
+$var = new class {};

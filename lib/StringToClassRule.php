@@ -34,7 +34,7 @@ final class StringToClassRule implements Rule
     {
         $className = $node->value;
         $messages = [];
-        if (empty($className)) {
+        if (! \preg_match('/^\w.+\w$/u', $className)) {
             return $messages;
         }
         if (! $this->broker->hasClass($className)) {
