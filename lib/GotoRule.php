@@ -18,6 +18,6 @@ final class GotoRule implements Rule
 
     public function processNode(Node $node, Scope $scope): array
     {
-        return array('No goto, cmon!');
+        return ['No goto, cmon!'];
     }
 }

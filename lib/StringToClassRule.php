@@ -27,7 +27,7 @@ final class StringToClassRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         $className = $node->value;
-        $messages = array();
+        $messages = [];
         if (! $this->broker->hasClass($className)) {
             return $messages;
         }
@@ -37,8 +37,8 @@ final class StringToClassRule implements Rule
             return $messages;
         }
 
-        return array(
+        return [
             \sprintf('Class %s should be written with ::class notation, string found.', $className),
-        );
+        ];
     }
 }

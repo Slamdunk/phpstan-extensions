@@ -21,15 +21,15 @@ final class GotoRuleTest extends RuleTestCase
     public function testClassConstant()
     {
         $this->analyse(
-            array(
+            [
                 __DIR__ . '/TestAsset/Goto.php',
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'No goto, cmon!',
                     6,
-                ),
-            )
+                ],
+            ]
         );
     }
 }

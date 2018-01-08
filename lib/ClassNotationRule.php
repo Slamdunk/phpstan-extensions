@@ -30,7 +30,7 @@ final class ClassNotationRule implements Rule
     {
         $name = $node->name;
         $fqcn = $node->namespacedName->toString();
-        $messages = array();
+        $messages = [];
         if ($node instanceof Interface_) {
             if (! \preg_match('/Interface$/', $name)) {
                 $messages[] = \sprintf('Interface %s should end with "Interface" suffix.', $fqcn);

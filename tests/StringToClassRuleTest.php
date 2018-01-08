@@ -23,27 +23,27 @@ final class StringToClassRuleTest extends RuleTestCase
     public function testClassConstant()
     {
         $this->analyse(
-            array(
+            [
                 __DIR__ . '/TestAsset/FooStringToClass.php',
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
                     12,
-                ),
-                array(
+                ],
+                [
                     'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
                     13,
-                ),
-                array(
+                ],
+                [
                     'Class DateTimeImmutable should be written with ::class notation, string found.',
                     14,
-                ),
-                array(
+                ],
+                [
                     'Class stdClass should be written with ::class notation, string found.',
                     15,
-                ),
-            )
+                ],
+            ]
         );
     }
 }
