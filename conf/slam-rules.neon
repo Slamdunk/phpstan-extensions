@@ -8,6 +8,10 @@ services:
         tags:
             - phpstan.rules.rule
     -
+        class: SlamPhpStan\PhpUnitFqcnAnnotationRule
+        tags:
+            - phpstan.rules.rule
+    -
         class: SlamPhpStan\StringToClassRule
         tags:
             - phpstan.rules.rule
