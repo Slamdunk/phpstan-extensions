@@ -52,7 +52,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
         $lines = \preg_split('/\R/u', $docComment->getText());
         foreach ($lines as $lineNumber => $lineContent) {
             $matches = [];
-            if (! \preg_match('/^(?:\s*\*\s*@(?:expectedException|covers|coversDefaultClass|uses)\h+)\\\\?(?<className>\w*)\s*$/u', $lineContent, $matches)) {
+            if (! \preg_match('/^(?:\s*\*\s*@(?:expectedException|covers|coversDefaultClass|uses)\h+)\\\\?(?<className>\w.*)\s*$/u', $lineContent, $matches)) {
                 continue;
             }
             if (! $this->broker->hasClass($matches['className'])) {

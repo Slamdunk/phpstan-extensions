@@ -23,8 +23,8 @@ class PhpUnitFqcnAnnotationPre {}
 class PhpUnitFqcnAnnotation {}
 
 /**
- * @covers PhpUnitFqcnAnnotation
- * @covers \PhpUnitFqcnAnnotation
+ * @covers FooBar\PhpUnitFqcnAnnotation
+ * @covers \FooBar\PhpUnitFqcnAnnotation
  * @covers SlamPhpStan\Tests\TestAsset\PhpUnitFqcnAnnotation
  * @covers \SlamPhpStan\Tests\TestAsset\PhpUnitFqcnAnnotation
  *
@@ -43,8 +43,8 @@ function foo() {}
 $var = 1;
 
 /**
- * @uses PhpUnitFqcnAnnotation
- * @uses \PhpUnitFqcnAnnotation
+ * @uses FooBar\PhpUnitFqcnAnnotation
+ * @uses \FooBar\PhpUnitFqcnAnnotation
  * @uses SlamPhpStan\Tests\TestAsset\PhpUnitFqcnAnnotation
  * @uses \SlamPhpStan\Tests\TestAsset\PhpUnitFqcnAnnotation
  */

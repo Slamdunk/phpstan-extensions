@@ -36,11 +36,11 @@ final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
                     23,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 26).',
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 26).',
                     34,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 27).',
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 27).',
                     34,
                 ],
                 [
@@ -52,11 +52,11 @@ final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
                     43,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 46).',
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 46).',
                     -1,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 47).',
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 47).',
                     -1,
                 ],
             ]
