@@ -16,7 +16,7 @@ composer require --dev slam/phpstan-extensions
 
 And include slam-rules.neon in your project's PHPStan config:
 
-```
+```yaml
 includes:
     - vendor/slam/phpstan-extensions/conf/slam-rules.neon
 ```
