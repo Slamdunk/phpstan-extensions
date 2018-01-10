@@ -8,9 +8,18 @@ Extensions for [PHPStan](https://github.com/phpstan/phpstan)
 
 ## Installation
 
-Execute:
+To use this extension, require it in [Composer](https://getcomposer.org/):
 
-`composer require --dev slam/phpstan-extensions`
+```bash
+composer require --dev slam/phpstan-extensions
+```
+
+And include slam-rules.neon in your project's PHPStan config:
+
+```
+includes:
+    - vendor/slam/phpstan-extensions/conf/slam-rules.neon
+```
 
 ## Rules
 
