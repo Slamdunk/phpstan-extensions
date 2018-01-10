@@ -21,3 +21,8 @@ Execute:
     1. Traits must end with "Trait"
     1. Abstract classes must start with "Abstract"
     1. Exceptions must end with "Exception"
+1. `SlamPhpStan\PhpUnitFqcnAnnotationRule`: classes found in following PHPUnit annotations must exist:
+    1. `@expectedException`
+    1. `@covers`
+    1. `@coversDefaultClass`
+    1. `@uses`
