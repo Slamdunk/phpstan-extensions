@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SlamPhpStan;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
@@ -69,6 +70,10 @@ final class UnusedVariableRule implements Rule
             }
             if ($node->var instanceof PropertyFetch) {
                 $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
+            } elseif ($node->var instanceof ArrayDimFetch) {
+                if ($node->var->dim instanceof Node) {
+                    $this->gatherVariablesUsage($node->var->dim, $unusedVariables, $usedVariables, $parameters);
+                }
             }
         }
         if ($node instanceof Variable) {
