@@ -23,6 +23,7 @@ includes:
 
 ## Rules
 
+1. `SlamPhpStan\UnusedVariableRule`: check for variable inside functions never used after initial assignment
 1. `SlamPhpStan\StringToClassRule`: requires strings that refer to classes to be expressed with `::class` notation
 1. `SlamPhpStan\GotoRule`: no goto allowed
 1. `SlamPhpStan\ClassNotationRule`:

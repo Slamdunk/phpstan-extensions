@@ -18,7 +18,7 @@
         "phpstan/phpstan-phpunit": "^0.9.3",
         "phpunit/phpunit": "^6.5",
         "roave/security-advisories": "dev-master",
-        "slam/php-cs-fixer-extensions": "^1.12",
+        "slam/php-cs-fixer-extensions": "^1.13",
         "slam/php-debug-r": "^1.2",
         "thecodingmachine/phpstan-strict-rules": "^0.9.0"
     },

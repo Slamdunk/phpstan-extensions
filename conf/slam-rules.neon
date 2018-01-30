@@ -15,3 +15,7 @@ services:
         class: SlamPhpStan\StringToClassRule
         tags:
             - phpstan.rules.rule
+    -
+        class: SlamPhpStan\UnusedVariableRule
+        tags:
+            - phpstan.rules.rule
