@@ -51,6 +51,10 @@ function foo($ref)
 
     $var11 = 1;
     isset($var12[$var11]);
+
+    // Resembles a session
+    $var13 = new \stdClass();
+    $var13->var14 = 1;
 }
 
 $outsideFunctionVar = 1;

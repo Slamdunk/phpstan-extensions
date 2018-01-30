@@ -6,7 +6,7 @@ namespace SlamPhpStan;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\Assign;
-use PhpParser\Node\Expr\Closure;
+use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Scalar\String_;
@@ -59,13 +59,17 @@ final class UnusedVariableRule implements Rule
         if ($node instanceof FunctionLike && $node !== $originalNode) {
             return;
         }
-        if (
-            $node instanceof Assign
-            && $node->var instanceof Variable
-            && \is_string($node->var->name)
-            && ! isset($parameters[$node->var->name])
-        ) {
-            $unusedVariables[$node->var->name] = $node->var;
+        if ($node instanceof Assign) {
+            if (
+                $node->var instanceof Variable
+                && \is_string($node->var->name)
+                && ! isset($parameters[$node->var->name])
+            ) {
+                $unusedVariables[$node->var->name] = $node->var;
+            }
+            if ($node->var instanceof PropertyFetch) {
+                $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
+            }
         }
         if ($node instanceof Variable) {
             if (\is_string($node->name)) {
