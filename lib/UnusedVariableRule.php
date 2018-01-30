@@ -36,6 +36,11 @@ final class UnusedVariableRule implements Rule
         foreach ($node->getParams() as $parameter) {
             $parameters[$parameter->name] = true;
         }
+        if ($node instanceof Closure) {
+            foreach ($node->uses as $use) {
+                $parameters[$use->var] = true;
+            }
+        }
 
         $unusedVariables = [];
         $usedVariables = [];
@@ -43,12 +48,12 @@ final class UnusedVariableRule implements Rule
 
         foreach ($unusedVariables as $varName => $var) {
             if (! isset($usedVariables[$varName])) {
-                $messages[] = \sprintf('%s has an unused variable $%s at line %s.',
+                $messages[] = \sprintf('[Line %3s] %s has an unused variable $%s.',
+                    $var->getAttribute('startLine'),
                     \in_array('name', $node->getSubNodeNames(), true) && isset($node->name)
                         ? \sprintf('Function %s()', $node->name)
                         : 'Closure function',
-                    $varName,
-                    $var->getAttribute('startLine')
+                    $varName
                 );
             }
         }
@@ -68,16 +73,16 @@ final class UnusedVariableRule implements Rule
             return;
         }
         if ($node instanceof Assign) {
-            if (
-                $node->var instanceof Variable
-                && \is_string($node->var->name)
-                && ! isset($parameters[$node->var->name])
-            ) {
-                $unusedVariables[$node->var->name] = $node->var;
-            }
-            if ($node->var instanceof PropertyFetch) {
+            if ($node->var instanceof Variable) {
+                if (\is_string($node->var->name) && ! isset($parameters[$node->var->name])) {
+                    $unusedVariables[$node->var->name] = $node->var;
+                }
+            } elseif ($node->var instanceof PropertyFetch) {
                 $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
             } elseif ($node->var instanceof ArrayDimFetch) {
+                if ($node->var->var instanceof Node) {
+                    $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
+                }
                 if ($node->var->dim instanceof Node) {
                     $this->gatherVariablesUsage($node->var->dim, $unusedVariables, $usedVariables, $parameters);
                 }

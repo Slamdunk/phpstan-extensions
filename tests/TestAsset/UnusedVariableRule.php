@@ -52,15 +52,25 @@ function foo($ref)
     $var11 = 1;
     isset($var12[$var11]);
 
-    // Resembles a session
+    // Resembles an object retrieved by ref
     $var13 = new \stdClass();
-    $var13->var14 = 1;
+    $var13->foo = 1;
+
+    // Resembles an ArrayAccess object retrieved by ref
+    $var14 = [];
+    $var14[] = 1;
 
     $var15 = 1;
     $var16[$var15] = 2;
 
     $var17 = 1;
     $function2 = function() use ($var17) {};
+    $function2();
+
+    $var18 = 1;
+    $function2 = static function() use (& $var18) {
+        $var18 = 2;
+    };
     $function2();
 }
 

@@ -26,15 +26,15 @@ final class UnusedVariableRuleTest extends RuleTestCase
             ],
             [
                 [
-                    'Function foo() has an unused variable $var1 at line 7.',
+                    '[Line   7] Function foo() has an unused variable $var1.',
                     5,
                 ],
                 [
-                    'Function foo() has an unused variable $var10 at line 49.',
+                    '[Line  49] Function foo() has an unused variable $var10.',
                     5,
                 ],
                 [
-                    'Closure function has an unused variable $var5bis at line 27.',
+                    '[Line  27] Closure function has an unused variable $var5bis.',
                     24,
                 ],
             ]
