@@ -7,6 +7,7 @@ namespace SlamPhpStan;
 use PhpParser\Node;
 use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
@@ -58,6 +59,12 @@ final class UnusedVariableRule implements Rule
     private function gatherVariablesUsage(Node $node, array & $unusedVariables, array & $usedVariables, array $parameters = [], Node $originalNode = null): void
     {
         if ($node instanceof FunctionLike && $node !== $originalNode) {
+            if ($node instanceof Closure) {
+                foreach ($node->uses as $use) {
+                    $usedVariables[$use->var] = true;
+                }
+            }
+
             return;
         }
         if ($node instanceof Assign) {

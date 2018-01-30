@@ -21,12 +21,12 @@ function foo($ref)
     $var4 = 1;
     $string .= "$var4";
 
-    $function = function($var5) {
+    $function1 = function($var5) {
         $var5 = 1;
 
         $var5bis = 1;
     };
-    $function($string);
+    $function1($string);
 
     $var6 = 1;
     ${'var6'};
@@ -58,6 +58,10 @@ function foo($ref)
 
     $var15 = 1;
     $var16[$var15] = 2;
+
+    $var17 = 1;
+    $function2 = function() use ($var17) {};
+    $function2();
 }
 
 $outsideFunctionVar = 1;
