@@ -17,6 +17,18 @@ use PHPStan\Rules\Rule;
 
 final class UnusedVariableRule implements Rule
 {
+    private static $globalVariables = [
+        'GLOBALS' => true,
+        '_COOKIE' => true,
+        '_ENV' => true,
+        '_FILES' => true,
+        '_GET' => true,
+        '_POST' => true,
+        '_REQUEST' => true,
+        '_SERVER' => true,
+        '_SESSION' => true,
+    ];
+
     public function getNodeType(): string
     {
         return FunctionLike::class;
@@ -74,7 +86,7 @@ final class UnusedVariableRule implements Rule
         }
         if ($node instanceof Assign) {
             if ($node->var instanceof Variable) {
-                if (\is_string($node->var->name) && ! isset($parameters[$node->var->name])) {
+                if (\is_string($node->var->name) && ! isset($parameters[$node->var->name]) && ! isset(self::$globalVariables[$node->var->name])) {
                     $unusedVariables[$node->var->name] = $node->var;
                 }
             } elseif ($node->var instanceof PropertyFetch) {

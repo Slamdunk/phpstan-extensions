@@ -72,6 +72,9 @@ function foo($ref)
         $var18 = 2;
     };
     $function2();
+
+    $_SESSION = ['var19' => 1];
+    $GLOBALS = null;
 }
 
 $outsideFunctionVar = 1;
