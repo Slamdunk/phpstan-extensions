@@ -16,7 +16,7 @@
     "require-dev": {
         "phpstan/phpstan-php-parser": "^0.9.0",
         "phpstan/phpstan-phpunit": "^0.9.3",
-        "phpunit/phpunit": "^6.5",
+        "phpunit/phpunit": "^7.0",
         "roave/security-advisories": "dev-master",
         "slam/php-cs-fixer-extensions": "^1.13",
         "slam/php-debug-r": "^1.2",
