@@ -50,6 +50,9 @@ final class PhpUnitFqcnAnnotationRule implements Rule
         $this->alreadyParsedDocComments[$hash] = true;
 
         $lines = \preg_split('/\R/u', $docComment->getText());
+        if (false === $lines) {
+            return $messages;
+        }
         foreach ($lines as $lineNumber => $lineContent) {
             $matches = [];
             if (! \preg_match('/^(?:\s*\*\s*@(?:expectedException|covers|coversDefaultClass|uses)\h+)\\\\?(?<className>\w[^:\s]*)(?:::\S+)?\s*$/u', $lineContent, $matches)) {

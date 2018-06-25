@@ -53,11 +53,11 @@ final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
                 ],
                 [
                     'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 46).',
-                    -1,
+                    51,
                 ],
                 [
                     'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 47).',
-                    -1,
+                    51,
                 ],
             ]
         );

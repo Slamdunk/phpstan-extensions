@@ -46,11 +46,16 @@ final class UnusedVariableRule implements Rule
 
         $parameters = [];
         foreach ($node->getParams() as $parameter) {
-            $parameters[$parameter->name] = true;
+            $variable = $parameter->var;
+            if ($variable instanceof Variable && is_string($variable->name)) {
+                $parameters[$variable->name] = true;
+            }
         }
         if ($node instanceof Closure) {
             foreach ($node->uses as $use) {
-                $parameters[$use->var] = true;
+                if (is_string($use->var->name)) {
+                    $parameters[$use->var->name] = true;
+                }
             }
         }
 
@@ -78,7 +83,9 @@ final class UnusedVariableRule implements Rule
         if ($node instanceof FunctionLike && $node !== $originalNode) {
             if ($node instanceof Closure) {
                 foreach ($node->uses as $use) {
-                    $usedVariables[$use->var] = true;
+                    if (is_string($use->var->name)) {
+                        $usedVariables[$use->var->name] = true;
+                    }
                 }
             }
 
