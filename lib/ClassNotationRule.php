@@ -34,7 +34,7 @@ final class ClassNotationRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        $messages = [];
+        $messages       = [];
         $nodeIdentifier = $node->name;
         if (null === $nodeIdentifier) {
             return $messages;

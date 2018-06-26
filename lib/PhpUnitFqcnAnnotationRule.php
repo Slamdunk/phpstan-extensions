@@ -33,7 +33,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        $messages = [];
+        $messages   = [];
         $docComment = $node->getDocComment();
         if (empty($docComment)) {
             return $messages;
