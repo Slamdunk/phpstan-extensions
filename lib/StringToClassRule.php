@@ -33,7 +33,7 @@ final class StringToClassRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         $className = $node->value;
-        $messages = [];
+        $messages  = [];
         if (! \preg_match('/^\w.+\w$/u', $className)) {
             return $messages;
         }
@@ -42,7 +42,7 @@ final class StringToClassRule implements Rule
         }
 
         $classRef = $this->broker->getClass($className)->getNativeReflection();
-        if ($classRef->isInternal() and $classRef->getName() !== $className) {
+        if ($classRef->isInternal() && $classRef->getName() !== $className) {
             return $messages;
         }
 

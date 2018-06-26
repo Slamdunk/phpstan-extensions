@@ -34,8 +34,12 @@ final class ClassNotationRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        $messages = [];
-        $name = $node->name;
+        $messages       = [];
+        $nodeIdentifier = $node->name;
+        if (null === $nodeIdentifier) {
+            return $messages;
+        }
+        $name = $nodeIdentifier->name;
         if (0 === \strpos($name, 'AnonymousClass')) {
             return $messages;
         }
