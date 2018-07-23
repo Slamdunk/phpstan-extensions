@@ -33,8 +33,11 @@ final class StringToClassRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         $className = $node->value;
+        if (isset($className[0]) && '\\' === $className[0]) {
+            $className = \substr($className, 1);
+        }
         $messages  = [];
-        if (! \preg_match('/^\w.+\w$/u', $className)) {
+        if (! \preg_match('/^\\w.+\\w$/u', $className)) {
             return $messages;
         }
         if (! $this->broker->hasClass($className)) {

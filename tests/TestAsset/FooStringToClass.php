@@ -14,6 +14,14 @@ $var = 'SlamPhpStan\\Tests\\TestAsset\\FooStringToClass';
 $var = 'DateTimeImmutable';
 $var = 'stdClass';
 
+$var = '\SlamPhpStan\Tests\TestAsset\FooStringToClass';
+$var = '\\SlamPhpStan\\Tests\\TestAsset\\FooStringToClass';
+$var = '\DateTimeImmutable';
+$var = '\\stdClass';
+
+$var = '\\\\SlamPhpStan\Tests\TestAsset\FooStringToClass';
+$var = '\\\\DateTimeImmutable';
+
 $var = '';
 $var = '\\';
 $var = '_';

@@ -43,6 +43,22 @@ final class StringToClassRuleTest extends RuleTestCase
                     'Class stdClass should be written with ::class notation, string found.',
                     15,
                 ],
+                [
+                    'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
+                    17,
+                ],
+                [
+                    'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
+                    18,
+                ],
+                [
+                    'Class DateTimeImmutable should be written with ::class notation, string found.',
+                    19,
+                ],
+                [
+                    'Class stdClass should be written with ::class notation, string found.',
+                    20,
+                ],
             ]
         );
     }
