@@ -18,8 +18,8 @@
         "phpstan/phpstan-phpunit": "^0.11",
         "phpunit/phpunit": "^7.5",
         "roave/security-advisories": "dev-master",
-        "slam/php-cs-fixer-extensions": "^1.16",
-        "slam/php-debug-r": "^1.2",
+        "slam/php-cs-fixer-extensions": "^1.18",
+        "slam/php-debug-r": "^1.4",
         "thecodingmachine/phpstan-strict-rules": "^0.11"
     },
     "autoload": {
