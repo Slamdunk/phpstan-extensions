@@ -6,5 +6,8 @@ includes:
     - conf/thecodingmachine-rules.neon
 
 parameters:
+    paths:
+        - lib/
+        - tests/
     excludes_analyse:
         - tests/TestAsset/
