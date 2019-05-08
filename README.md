@@ -14,7 +14,7 @@ To use this extension, require it in [Composer](https://getcomposer.org/):
 composer require --dev slam/phpstan-extensions
 ```
 
-And include slam-rules.neon in your project's PHPStan config:
+And include `slam-rules.neon` in your project's PHPStan config:
 
 ```yaml
 includes:
@@ -36,3 +36,20 @@ includes:
     1. `@covers`
     1. `@coversDefaultClass`
     1. `@uses`
+1.  `SlamPhpStan\AccessStaticPropertyWithinModelContextRule`: inhibit the access to static attributes of a class within
+classes that extend or implement a certain class/interface, useful to prohibit usage of singletons in models
+
+## Yii-specific config
+
+A `yii-rules.neon` config is present for Yii projects:
+
+```yaml
+includes:
+    - vendor/slam/phpstan-extensions/conf/yii-rules.neon
+```
+
+With the following configurations:
+
+1. `SlamPhpStan\AccessStaticPropertyWithinModelContextRule` to deny the usage of `yii\BaseYii` static variables like
+`$app` in models implementing `yii\db\ActiveRecordInterface`: accessing to singletons in models is considered an
+anti-pattern
