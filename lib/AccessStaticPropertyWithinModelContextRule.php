@@ -56,11 +56,11 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
         }
 
         $classReflection = $scope->getClassReflection();
-        if (null === $classReflection || ! $classReflection->isSubclassOf($this->modelBaseClassOrInterface)) {
+        if (! $classReflection->isSubclassOf($this->modelBaseClassOrInterface)) {
             return [];
         }
 
-        $baseYiiClassName = (string) $node->class;
+        $baseYiiClassName = $scope->resolveName($node->class);
         if (! $this->broker->hasClass($baseYiiClassName)) {
             return [];
         }
