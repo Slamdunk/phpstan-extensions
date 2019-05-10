@@ -1,0 +1,8 @@
+services:
+    -
+        class: SlamPhpStan\AccessStaticPropertyWithinModelContextRule
+        tags:
+            - phpstan.rules.rule
+        arguments:
+            modelBaseClassOrInterface: yii\db\ActiveRecordInterface
+            singletonAccessor: yii\BaseYii
