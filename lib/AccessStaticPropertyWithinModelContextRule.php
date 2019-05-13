@@ -72,7 +72,7 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
 
         $modelBaseClassOrInterface = $this->broker->getClass($this->modelBaseClassOrInterface);
 
-        return [\sprintf('Class %s %s %s and uses %s::$%s: in a model accessing to a singleton is considered an anti-pattern',
+        return [\sprintf('Class %s %s %s and uses %s::$%s: accessing a singleton in this context is considered an anti-pattern',
             $classReflection->getDisplayName(),
             $modelBaseClassOrInterface->isInterface() ? 'implements' : 'extends',
             $this->modelBaseClassOrInterface,
