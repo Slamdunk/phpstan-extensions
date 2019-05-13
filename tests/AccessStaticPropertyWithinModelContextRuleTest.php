@@ -50,7 +50,7 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
             ],
             [
                 [
-                    \sprintf('Class %s implements %s and uses %s::$app: in a model accessing to a singleton is considered an anti-pattern',
+                    \sprintf('Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
                         TestAsset\ModelAccessingYiiAppSingletons::class,
                         $this->modelBaseClassOrInterface,
                         $this->singletonAccessor
@@ -58,7 +58,7 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
                     8,
                 ],
                 [
-                    \sprintf('Class %s implements %s and uses %s::$app: in a model accessing to a singleton is considered an anti-pattern',
+                    \sprintf('Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
                         TestAsset\ModelAccessingYiiAppSingletons::class,
                         $this->modelBaseClassOrInterface,
                         $this->singletonAccessor
