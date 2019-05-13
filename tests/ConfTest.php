@@ -19,6 +19,7 @@ final class ConfTest extends TestCase
     {
         static::assertIsReadable($filename);
         $fileContent = \file_get_contents($filename);
+        static::assertIsString($fileContent);
         static::assertNotEmpty($fileContent);
 
         $decoder = new Decoder();
@@ -28,9 +29,13 @@ final class ConfTest extends TestCase
     public function confProvider(): array
     {
         $confFolder = \dirname(__DIR__) . '/conf';
+        $confs      = \glob($confFolder . '/*.neon');
+
+        static::assertIsArray($confs);
+        static::assertNotEmpty($confs);
 
         return \array_map(function (string $filename): array {
             return [$filename];
-        }, \glob($confFolder . '/*.neon'));
+        }, $confs);
     }
 }
