@@ -11,6 +11,7 @@ parameters:
         - tests/
     excludes_analyse:
         - tests/TestAsset/
+        - tests/TmpAsset/
 
 services:
 	scopeIsInClass:

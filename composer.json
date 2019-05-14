@@ -14,6 +14,7 @@
         "phpstan/phpstan": "^0.11"
     },
     "require-dev": {
+        "nette/di": "^3.0",
         "nette/neon": "^3.0",
         "phpstan/phpstan-php-parser": "^0.11",
         "phpstan/phpstan-phpunit": "^0.11",

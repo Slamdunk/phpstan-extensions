@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SlamPhpStan\Tests;
 
-use Nette\Neon\Decoder;
+use PHPStan\DependencyInjection\ContainerFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -17,13 +17,8 @@ final class ConfTest extends TestCase
      */
     public function testConfIsValid(string $filename)
     {
-        static::assertIsReadable($filename);
-        $fileContent = \file_get_contents($filename);
-        static::assertIsString($fileContent);
-        static::assertNotEmpty($fileContent);
-
-        $decoder = new Decoder();
-        static::assertIsArray($decoder->decode($fileContent));
+        $containerFactory = new ContainerFactory(__DIR__);
+        static::assertNotEmpty($containerFactory->create(__DIR__ . '/TmpAsset', [$filename], []));
     }
 
     public function confProvider(): array
