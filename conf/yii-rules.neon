@@ -18,10 +18,10 @@ services:
         tags:
             - phpstan.rules.rule
         arguments:
-            modelBaseClassOrInterface: yii\db\ActiveRecordInterface
+            contextBaseClassOrInterface: yii\db\ActiveRecordInterface
     -
         class: SlamPhpStan\AccessGlobalVariableWithinContextRule
         tags:
             - phpstan.rules.rule
         arguments:
-            modelBaseClassOrInterface: yii\db\ActiveQueryInterface
+            contextBaseClassOrInterface: yii\db\ActiveQueryInterface
