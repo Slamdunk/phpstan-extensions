@@ -20,7 +20,7 @@ final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
-        $this->contextBaseClassOrInterface = TestAsset\YiiAlikeActiveRecordInterface::class;
+        $this->contextBaseClassOrInterface = TestAsset\AccessGlobalVariableWithinContextRule\YiiAlikeActiveRecordInterface::class;
 
         parent::__construct($name, $data, $dataName);
     }
@@ -36,26 +36,26 @@ final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/AccessGlobalVariableWithinContextRule.php',
+                __DIR__ . '/TestAsset/AccessGlobalVariableWithinContextRule/fixture.php',
             ],
             [
                 [
                     \sprintf('Class %s implements %s and uses $_POST: accessing globals in this context is considered an anti-pattern',
-                        TestAsset\ModelAccessingGlobalVariable::class,
+                        TestAsset\AccessGlobalVariableWithinContextRule\ModelAccessingGlobalVariable::class,
                         $this->contextBaseClassOrInterface
                     ),
                     8,
                 ],
                 [
                     \sprintf('Class %s implements %s and uses $GLOBALS: accessing globals in this context is considered an anti-pattern',
-                        TestAsset\ModelAccessingGlobalVariable::class,
+                        TestAsset\AccessGlobalVariableWithinContextRule\ModelAccessingGlobalVariable::class,
                         $this->contextBaseClassOrInterface
                     ),
                     9,
                 ],
                 [
                     \sprintf('Class %s implements %s and uses $argc: accessing globals in this context is considered an anti-pattern',
-                        TestAsset\ModelAccessingGlobalVariable::class,
+                        TestAsset\AccessGlobalVariableWithinContextRule\ModelAccessingGlobalVariable::class,
                         $this->contextBaseClassOrInterface
                     ),
                     10,

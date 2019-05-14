@@ -1,6 +1,6 @@
 <?php
 
-namespace SlamPhpStan\Tests\TestAsset;
+namespace SlamPhpStan\Tests\TestAsset\AccessGlobalVariableWithinContextRule;
 
 class ModelAccessingGlobalVariable implements YiiAlikeActiveRecordInterface {
     public function foo() {
@@ -11,6 +11,10 @@ class ModelAccessingGlobalVariable implements YiiAlikeActiveRecordInterface {
 
         $baz1 = $POST ?? null;
         $baz2 = $argcount ?? null;
+
+        $var = 'foo';
+        $$var = 1;
+        ${$var} = 2;
     }
 }
 
@@ -23,6 +27,10 @@ class AnyOtherClass {
 
         $baz1 = $POST ?? null;
         $baz2 = $argcount ?? null;
+
+        $var = 'foo';
+        $$var = 1;
+        ${$var} = 2;
     }
 }
 
@@ -35,6 +43,10 @@ trait YiiAppSingletonCallRuleTrait {
 
         $baz1 = $POST ?? null;
         $baz2 = $argcount ?? null;
+
+        $var = 'foo';
+        $$var = 1;
+        ${$var} = 2;
     }
 }
 
@@ -46,6 +58,10 @@ function YiiAppSingletonCallRuleFunction() {
 
     $baz1 = $POST ?? null;
     $baz2 = $argcount ?? null;
+
+    $var = 'foo';
+    $$var = 1;
+    ${$var} = 2;
 }
 
 interface YiiAlikeActiveRecordInterface {}

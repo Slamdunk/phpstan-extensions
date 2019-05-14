@@ -55,8 +55,11 @@ final class AccessGlobalVariableWithinContextRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        $variableName = (string) $node->name;
-        if (! isset($this->globals[$variableName])) {
+        if (! \is_string($node->name)) {
+            return [];
+        }
+
+        if (! isset($this->globals[$node->name])) {
             return [];
         }
 
@@ -75,7 +78,7 @@ final class AccessGlobalVariableWithinContextRule implements Rule
             $classReflection->getDisplayName(),
             $modelBaseClassOrInterface->isInterface() ? 'implements' : 'extends',
             $this->contextBaseClassOrInterface,
-            $variableName
+            $node->name
         )];
     }
 }

@@ -25,8 +25,8 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
 
     public function __construct($name = null, array $data = [], $dataName = '')
     {
-        $this->modelBaseClassOrInterface = TestAsset\YiiAlikeActiveRecordInterface::class;
-        $this->singletonAccessor         = TestAsset\YiiAlikeBaseYii::class;
+        $this->modelBaseClassOrInterface = TestAsset\AccessStaticPropertyWithinModelContextRule\YiiAlikeActiveRecordInterface::class;
+        $this->singletonAccessor         = TestAsset\AccessStaticPropertyWithinModelContextRule\YiiAlikeBaseYii::class;
 
         parent::__construct($name, $data, $dataName);
     }
@@ -46,12 +46,12 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/AccessStaticPropertyWithinModelContextRule.php',
+                __DIR__ . '/TestAsset/AccessStaticPropertyWithinModelContextRule/fixture.php',
             ],
             [
                 [
                     \sprintf('Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
-                        TestAsset\ModelAccessingYiiAppSingletons::class,
+                        TestAsset\AccessStaticPropertyWithinModelContextRule\ModelAccessingYiiAppSingletons::class,
                         $this->modelBaseClassOrInterface,
                         $this->singletonAccessor
                     ),
@@ -59,7 +59,7 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
                 ],
                 [
                     \sprintf('Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
-                        TestAsset\ModelAccessingYiiAppSingletons::class,
+                        TestAsset\AccessStaticPropertyWithinModelContextRule\ModelAccessingYiiAppSingletons::class,
                         $this->modelBaseClassOrInterface,
                         $this->singletonAccessor
                     ),

@@ -1,6 +1,6 @@
 <?php
 
-namespace SlamPhpStan\Tests\TestAsset;
+namespace SlamPhpStan\Tests\TestAsset\UnusedVariableRule;
 
 function foo($ref)
 {

@@ -24,27 +24,27 @@ final class ClassNotationRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/ClassNotation.php',
+                __DIR__ . '/TestAsset/ClassNotation/fixture.php',
             ],
             [
                 [
-                    'Interface SlamPhpStan\Tests\TestAsset\A should end with "Interface" suffix.',
+                    \sprintf('Interface %s should end with "Interface" suffix.', TestAsset\ClassNotation\A::class),
                     5,
                 ],
                 [
-                    'Abstract class SlamPhpStan\Tests\TestAsset\B should start with "Abstract" prefix.',
+                    \sprintf('Abstract class %s should start with "Abstract" prefix.', TestAsset\ClassNotation\B::class),
                     9,
                 ],
                 [
-                    'Abstract class SlamPhpStan\Tests\TestAsset\Abstract_B should start with "Abstract" prefix.',
+                    \sprintf('Abstract class %s should start with "Abstract" prefix.', TestAsset\ClassNotation\Abstract_B::class),
                     13,
                 ],
                 [
-                    'Trait SlamPhpStan\Tests\TestAsset\C should end with "Trait" suffix.',
+                    \sprintf('Trait %s should end with "Trait" suffix.', TestAsset\ClassNotation\C::class),
                     17,
                 ],
                 [
-                    'Exception class SlamPhpStan\Tests\TestAsset\E should end with "Exception" suffix.',
+                    \sprintf('Exception class %s should end with "Exception" suffix.', TestAsset\ClassNotation\E::class),
                     20,
                 ],
             ]

@@ -24,7 +24,7 @@ final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/PhpUnitFqcnAnnotation.php',
+                __DIR__ . '/TestAsset/PhpUnitFqcnAnnotation/fixture.php',
             ],
             [
                 [
