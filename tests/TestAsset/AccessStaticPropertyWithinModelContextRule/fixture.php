@@ -1,6 +1,6 @@
 <?php
 
-namespace SlamPhpStan\Tests\TestAsset;
+namespace SlamPhpStan\Tests\TestAsset\AccessStaticPropertyWithinModelContextRule;
 
 class ModelAccessingYiiAppSingletons implements YiiAlikeActiveRecordInterface {
     public function foo() {

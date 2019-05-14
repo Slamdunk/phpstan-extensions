@@ -36,6 +36,8 @@ includes:
     1. `@covers`
     1. `@coversDefaultClass`
     1. `@uses`
+1.  `SlamPhpStan\AccessGlobalVariableWithinContextRule`: inhibit the access to globals within
+classes that extend or implement a certain class/interface
 1.  `SlamPhpStan\AccessStaticPropertyWithinModelContextRule`: inhibit the access to static attributes of a class within
 classes that extend or implement a certain class/interface, useful to prohibit usage of singletons in models
 

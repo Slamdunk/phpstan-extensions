@@ -22,7 +22,7 @@ final class UnusedVariableRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/UnusedVariableRule.php',
+                __DIR__ . '/TestAsset/UnusedVariableRule/fixture.php',
             ],
             [
                 [

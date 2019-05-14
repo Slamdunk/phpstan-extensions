@@ -24,15 +24,15 @@ final class StringToClassRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/FooStringToClass.php',
+                __DIR__ . '/TestAsset/StringToClassRule/fixture.php',
             ],
             [
                 [
-                    'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
+                    \sprintf('Class %s should be written with ::class notation, string found.', TestAsset\StringToClassRule\FooStringToClass::class),
                     12,
                 ],
                 [
-                    'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
+                    \sprintf('Class %s should be written with ::class notation, string found.', TestAsset\StringToClassRule\FooStringToClass::class),
                     13,
                 ],
                 [
@@ -44,11 +44,11 @@ final class StringToClassRuleTest extends RuleTestCase
                     15,
                 ],
                 [
-                    'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
+                    \sprintf('Class %s should be written with ::class notation, string found.', TestAsset\StringToClassRule\FooStringToClass::class),
                     17,
                 ],
                 [
-                    'Class SlamPhpStan\Tests\TestAsset\FooStringToClass should be written with ::class notation, string found.',
+                    \sprintf('Class %s should be written with ::class notation, string found.', TestAsset\StringToClassRule\FooStringToClass::class),
                     18,
                 ],
                 [

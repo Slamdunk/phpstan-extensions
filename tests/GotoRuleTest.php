@@ -22,7 +22,7 @@ final class GotoRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/TestAsset/Goto.php',
+                __DIR__ . '/TestAsset/GotoRule/fixture.php',
             ],
             [
                 [
