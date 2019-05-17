@@ -40,7 +40,7 @@ final class DateTimeImmutableAlteredAndUnusedRuleTest extends RuleTestCase
                     'The method DateTimeImmutable::sub is invoked without using its result',
                     8,
                 ],
-            ],
+            ]
         );
     }
 }
