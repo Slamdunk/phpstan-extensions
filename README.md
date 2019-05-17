@@ -54,7 +54,7 @@ includes:
 
 With the following configurations:
 
-1. `SlamPhpStan\AccessGlobalVariableWithinContextRule` to deny the usage of $_GET, $_POST and other global variables
+1. `SlamPhpStan\AccessGlobalVariableWithinContextRule` to deny the usage of `$_GET`, `$_POST` and other global variables
 in models implementing `yii\db\ActiveRecordInterface`: accessing to singletons in models is considered an anti-pattern
 1. `SlamPhpStan\AccessStaticPropertyWithinModelContextRule` to deny the usage of `yii\BaseYii` static variables like
 `$app` in models implementing `yii\db\ActiveRecordInterface`: accessing to singletons in models is considered an
