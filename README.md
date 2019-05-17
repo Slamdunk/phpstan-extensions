@@ -23,6 +23,8 @@ includes:
 
 ## Rules
 
+1. `SlamPhpStan\DateTimeImmutableAlteredAndUnusedRule`: check for DateTimeImmutable calls that alter the object
+but don't use the result; likely an error of the transition from mutable DateTime class
 1. `SlamPhpStan\UnusedVariableRule`: check for variable inside functions never used after initial assignment
 1. `SlamPhpStan\StringToClassRule`: requires strings that refer to classes to be expressed with `::class` notation
 1. `SlamPhpStan\GotoRule`: no goto allowed
