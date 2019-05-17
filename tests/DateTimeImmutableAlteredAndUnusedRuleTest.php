@@ -33,11 +33,11 @@ final class DateTimeImmutableAlteredAndUnusedRuleTest extends RuleTestCase
             ],
             [
                 [
-                    \sprintf('A %s class is altered but unused.', \DateTimeImmutable::class),
+                    'The method DateTimeImmutable::add is invoked without using its result',
                     5,
                 ],
                 [
-                    \sprintf('A %s class is altered but unused.', \DateTimeImmutable::class),
+                    'The method DateTimeImmutable::sub is invoked without using its result',
                     8,
                 ],
             ],

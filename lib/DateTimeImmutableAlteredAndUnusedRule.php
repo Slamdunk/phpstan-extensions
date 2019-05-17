@@ -84,9 +84,13 @@ final class DateTimeImmutableAlteredAndUnusedRule implements Rule
             return [];
         }
 
-        // How to know if $node is assigned/used to anything or
-        // just called in a dedicated line?
+        if (! $scope->isInFirstLevelStatement()) {
+            return [];
+        }
 
-        return [];
+        return [\sprintf('The method %s::%s is invoked without using its result',
+            \DateTimeImmutable::class,
+            $methodName
+        )];
     }
 }
