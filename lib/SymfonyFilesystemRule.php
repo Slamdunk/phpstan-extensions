@@ -74,7 +74,7 @@ final class SymfonyFilesystemRule implements Rule
 
         return [\sprintf('Function %s is unsafe to use, rely on Symfony component Filesystem::%s instead.',
             $calledFunctionName,
-            \implode('or Filesystem::', $this->callMap[$calledFunctionName])
+            \implode(' or Filesystem::', $this->callMap[$calledFunctionName])
         )];
     }
 }
