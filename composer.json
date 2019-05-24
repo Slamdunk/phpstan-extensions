@@ -39,7 +39,8 @@
     },
     "autoload-dev": {
         "files": [
-            "tests/TestAsset/SymfonyFilesystemRule/mkdir.php"
+            "tests/TestAsset/SymfonyFilesystemRule/mkdir.php",
+            "tests/TestAsset/SymfonyProcessRule/shell_exec.php"
         ],
         "classmap": [
             "tests/"
