@@ -23,3 +23,11 @@ services:
         class: SlamPhpStan\UnusedVariableRule
         tags:
             - phpstan.rules.rule
+    -
+        class: SlamPhpStan\SymfonyFilesystemRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\SymfonyProcessRule
+        tags:
+            - phpstan.rules.rule
