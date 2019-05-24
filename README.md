@@ -15,7 +15,12 @@ To use this extension, require it in [Composer](https://getcomposer.org/):
 composer require --dev slam/phpstan-extensions
 ```
 
-And include `slam-rules.neon` in your project's PHPStan config:
+## Usage
+
+When you are using [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer),
+`conf/slam-rules.neon` will be automatically included.
+
+Otherwise you need to include `conf/slam-rules.neon` in your `phpstan.neon`:
 
 ```yaml
 includes:

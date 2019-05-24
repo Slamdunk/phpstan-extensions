@@ -1,5 +1,6 @@
 {
     "name": "slam/phpstan-extensions",
+    "type": "phpstan-extension",
     "description": "Slam extension of phpstan",
     "license": "MIT",
     "authors": [
@@ -23,6 +24,13 @@
         "roave/security-advisories": "dev-master",
         "slam/php-cs-fixer-extensions": "^1.18",
         "slam/php-debug-r": "^1.4"
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "conf/slam-rules.neon"
+            ]
+        }
     },
     "autoload": {
         "psr-4": {
