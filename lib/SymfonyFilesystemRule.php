@@ -28,7 +28,6 @@ final class SymfonyFilesystemRule implements Rule
         'lchgrp'            => ['chgrp'],
         'chgrp'             => ['chgrp'],
         'rename'            => ['rename'],
-        'is_readable'       => ['isReadable'],
         'symlink'           => ['symlink'],
         'link'              => ['hardlink'],
         'readlink'          => ['readlink'],
