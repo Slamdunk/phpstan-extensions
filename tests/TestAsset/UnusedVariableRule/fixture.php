@@ -77,4 +77,26 @@ function foo($ref)
     $GLOBALS = null;
 }
 
+class Test
+{
+    function foo(array $numVals)
+    {
+        $arr = [
+            "1" => "propOne",
+            "2" => "propTwo",
+        ];
+
+        foreach ($numVals as $num => $v) {
+            $key = $arr[$num];
+            $this->{$key} = $v;
+
+            $key2 = $arr[$num];
+            $this->{$key2}();
+
+            $this->key = 1;
+            $this->key2();
+        }
+    }
+}
+
 $outsideFunctionVar = 1;

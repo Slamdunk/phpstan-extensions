@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace SlamPhpStan;
 
 use PhpParser\Node;
-use PhpParser\Node\Expr\ArrayDimFetch;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Closure;
-use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Scalar\String_;
@@ -96,14 +94,15 @@ final class UnusedVariableRule implements Rule
                 if (\is_string($node->var->name) && ! isset($parameters[$node->var->name]) && ! isset(self::$globalVariables[$node->var->name])) {
                     $unusedVariables[$node->var->name] = $node->var;
                 }
-            } elseif ($node->var instanceof PropertyFetch) {
-                $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
-            } elseif ($node->var instanceof ArrayDimFetch) {
-                if ($node->var->var instanceof Node) {
+            } else {
+                if (\property_exists($node->var, 'var') && $node->var->var instanceof Node) {
                     $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
                 }
-                if ($node->var->dim instanceof Node) {
+                if (\property_exists($node->var, 'dim') && $node->var->dim instanceof Node) {
                     $this->gatherVariablesUsage($node->var->dim, $unusedVariables, $usedVariables, $parameters);
+                }
+                if (\property_exists($node->var, 'name') && $node->var->name instanceof Node) {
+                    $this->gatherVariablesUsage($node->var->name, $unusedVariables, $usedVariables, $parameters);
                 }
             }
         }
