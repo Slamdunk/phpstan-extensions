@@ -31,3 +31,7 @@ services:
         class: SlamPhpStan\SymfonyProcessRule
         tags:
             - phpstan.rules.rule
+    -
+        class: SlamPhpStan\MissingClosureParameterTypehintRule
+        tags:
+            - phpstan.rules.rule
