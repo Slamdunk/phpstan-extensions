@@ -25,9 +25,11 @@ final class MissingClosureParameterTypehintRule implements Rule
         $messages = [];
 
         foreach ($node->params as $index => $param) {
-            if (null === $param->type) {
-                $messages[] = \sprintf('Parameter #%d $%s of anonymous function has no typehint.', 1 + $index, $param->var->name);
+            if (null !== $param->type || ! $param->var instanceof Node\Expr\Variable || ! \is_string($param->var->name)) {
+                continue;
             }
+
+            $messages[] = \sprintf('Parameter #%d $%s of anonymous function has no typehint.', 1 + $index, $param->var->name);
         }
 
         return $messages;
