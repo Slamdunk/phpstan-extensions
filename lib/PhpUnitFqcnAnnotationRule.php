@@ -8,6 +8,8 @@ use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 final class PhpUnitFqcnAnnotationRule implements Rule
 {
@@ -29,7 +31,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
      * @param \PhpParser\Node         $node
      * @param \PHPStan\Analyser\Scope $scope
      *
-     * @return string[] errors
+     * @return RuleError[] errors
      */
     public function processNode(Node $node, Scope $scope): array
     {
@@ -59,7 +61,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
                 continue;
             }
             if (! $this->broker->hasClass($matches['className'])) {
-                $messages[] = \sprintf('Class %s does not exist (line: %s).', $matches['className'], $docComment->getLine() + $lineNumber);
+                $messages[] = RuleErrorBuilder::message(\sprintf('Class %s does not exist.', $matches['className']))->line($docComment->getLine() + $lineNumber)->build();
             }
         }
 
