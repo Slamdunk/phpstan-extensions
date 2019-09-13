@@ -12,6 +12,8 @@ use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Scalar\String_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 final class UnusedVariableRule implements Rule
 {
@@ -36,7 +38,7 @@ final class UnusedVariableRule implements Rule
      * @param \PhpParser\Node\FunctionLike $node
      * @param \PHPStan\Analyser\Scope      $scope
      *
-     * @return string[] errors
+     * @return RuleError[] errors
      */
     public function processNode(Node $node, Scope $scope): array
     {
@@ -63,13 +65,12 @@ final class UnusedVariableRule implements Rule
 
         foreach ($unusedVariables as $varName => $var) {
             if (! isset($usedVariables[$varName])) {
-                $messages[] = \sprintf('[Line %3s] %s has an unused variable $%s.',
-                    $var->getAttribute('startLine'),
+                $messages[] = RuleErrorBuilder::message(\sprintf('%s has an unused variable $%s.',
                     \in_array('name', $node->getSubNodeNames(), true) && isset($node->name)
                         ? \sprintf('Function %s()', $node->name)
                         : 'Closure function',
                     $varName
-                );
+                ))->line($var->getAttribute('startLine'))->build();
             }
         }
 

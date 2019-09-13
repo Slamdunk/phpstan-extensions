@@ -28,36 +28,36 @@ final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
             ],
             [
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 14).',
-                    23,
+                    'Class PhpUnitFqcnAnnotation does not exist.',
+                    14,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 15).',
-                    23,
+                    'Class PhpUnitFqcnAnnotation does not exist.',
+                    15,
                 ],
                 [
-                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 26).',
-                    34,
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist.',
+                    26,
                 ],
                 [
-                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 27).',
-                    34,
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist.',
+                    27,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 37).',
-                    43,
+                    'Class PhpUnitFqcnAnnotation does not exist.',
+                    37,
                 ],
                 [
-                    'Class PhpUnitFqcnAnnotation does not exist (line: 38).',
-                    43,
+                    'Class PhpUnitFqcnAnnotation does not exist.',
+                    38,
                 ],
                 [
-                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 46).',
-                    51,
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist.',
+                    46,
                 ],
                 [
-                    'Class FooBar\PhpUnitFqcnAnnotation does not exist (line: 47).',
-                    51,
+                    'Class FooBar\PhpUnitFqcnAnnotation does not exist.',
+                    47,
                 ],
             ]
         );
