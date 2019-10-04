@@ -37,7 +37,7 @@ final class StringToClassRule implements Rule
             $className = \substr($className, 1);
         }
         $messages  = [];
-        if (! \preg_match('/^\\w.+\\w$/u', $className)) {
+        if (! \preg_match('/^\x5c\w.+\x5c\w$/u', $className)) {
             return $messages;
         }
         if (! $this->broker->hasClass($className)) {
