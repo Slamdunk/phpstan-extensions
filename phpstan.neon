@@ -6,6 +6,7 @@ includes:
     - conf/thecodingmachine-rules.neon
 
 parameters:
+    checkGenericClassInNonGenericObjectType: false
     paths:
         - lib/
         - tests/
