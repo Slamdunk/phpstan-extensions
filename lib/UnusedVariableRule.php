@@ -17,6 +17,9 @@ use PHPStan\Rules\RuleErrorBuilder;
 
 final class UnusedVariableRule implements Rule
 {
+    /**
+     * @var bool[]
+     */
     private static $globalVariables = [
         'GLOBALS'  => true,
         '_COOKIE'  => true,

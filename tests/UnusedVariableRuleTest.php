@@ -18,7 +18,7 @@ final class UnusedVariableRuleTest extends RuleTestCase
         return new UnusedVariableRule();
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

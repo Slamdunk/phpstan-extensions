@@ -42,7 +42,7 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
         );
     }
 
-    public function testRule()
+    public function testRule(): void
     {
         $this->analyse(
             [

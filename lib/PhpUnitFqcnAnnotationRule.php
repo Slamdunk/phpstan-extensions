@@ -13,8 +13,14 @@ use PHPStan\Rules\RuleErrorBuilder;
 
 final class PhpUnitFqcnAnnotationRule implements Rule
 {
+    /**
+     * @var Broker
+     */
     private $broker;
 
+    /**
+     * @var bool[]
+     */
     private $alreadyParsedDocComments = [];
 
     public function __construct(Broker $broker)

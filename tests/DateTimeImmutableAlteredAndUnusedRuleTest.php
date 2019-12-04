@@ -25,7 +25,7 @@ final class DateTimeImmutableAlteredAndUnusedRuleTest extends RuleTestCase
         );
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

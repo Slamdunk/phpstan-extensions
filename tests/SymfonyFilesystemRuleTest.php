@@ -20,7 +20,7 @@ final class SymfonyFilesystemRuleTest extends RuleTestCase
         return new SymfonyFilesystemRule($broker);
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

@@ -18,7 +18,7 @@ final class GotoRuleTest extends RuleTestCase
         return new GotoRule();
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

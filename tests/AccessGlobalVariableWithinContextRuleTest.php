@@ -32,7 +32,7 @@ final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
         return new AccessGlobalVariableWithinContextRule($broker, $this->contextBaseClassOrInterface);
     }
 
-    public function testRule()
+    public function testRule(): void
     {
         $this->analyse(
             [

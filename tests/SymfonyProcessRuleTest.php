@@ -20,7 +20,7 @@ final class SymfonyProcessRuleTest extends RuleTestCase
         return new SymfonyProcessRule($broker);
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

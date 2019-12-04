@@ -21,6 +21,9 @@ final class DateTimeImmutableAlteredAndUnusedRule implements Rule
     /** @var \PHPStan\Rules\RuleLevelHelper */
     private $ruleLevelHelper;
 
+    /**
+     * @var bool[]
+     */
     private $alteringMethods = [
         'add'          => true,
         'modify'       => true,

@@ -18,7 +18,7 @@ final class MissingClosureParameterTypehintRuleTest extends RuleTestCase
         return new MissingClosureParameterTypehintRule();
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

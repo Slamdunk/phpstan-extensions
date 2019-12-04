@@ -13,7 +13,7 @@ use PHPStan\Rules\Rule;
 final class SymfonyFilesystemRule implements Rule
 {
     /**
-     * @var array
+     * @var array[]
      */
     private $callMap = [
         'copy'              => ['copy'],
