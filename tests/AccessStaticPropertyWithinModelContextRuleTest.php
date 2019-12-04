@@ -23,6 +23,11 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
      */
     private $singletonAccessor;
 
+    /**
+     * @param string  $name
+     * @param mixed[] $data
+     * @param string  $dataName
+     */
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         $this->modelBaseClassOrInterface = TestAsset\AccessStaticPropertyWithinModelContextRule\YiiAlikeActiveRecordInterface::class;

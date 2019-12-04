@@ -18,6 +18,11 @@ final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
      */
     private $contextBaseClassOrInterface;
 
+    /**
+     * @param string  $name
+     * @param mixed[] $data
+     * @param string  $dataName
+     */
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         $this->contextBaseClassOrInterface = TestAsset\AccessGlobalVariableWithinContextRule\YiiAlikeActiveRecordInterface::class;

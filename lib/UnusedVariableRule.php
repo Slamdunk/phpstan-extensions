@@ -82,7 +82,7 @@ final class UnusedVariableRule implements Rule
 
     /**
      * @param mixed[] $unusedVariables
-     * @param bool[] $usedVariables
+     * @param bool[]  $usedVariables
      * @param mixed[] $parameters
      */
     private function gatherVariablesUsage(Node $node, array & $unusedVariables, array & $usedVariables, array $parameters = [], Node $originalNode = null): void
