@@ -20,7 +20,7 @@ final class StringToClassRuleTest extends RuleTestCase
         return new StringToClassRule($broker);
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

@@ -1,11 +1,12 @@
 includes:
-    - vendor/phpstan/phpstan/conf/config.levelmax.neon
+    - phar://phpstan.phar/conf/config.levelmax.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-php-parser/extension.neon
     - conf/slam-rules.neon
     - conf/thecodingmachine-rules.neon
 
 parameters:
+    checkGenericClassInNonGenericObjectType: false
     paths:
         - lib/
         - tests/

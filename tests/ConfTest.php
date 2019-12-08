@@ -15,12 +15,15 @@ final class ConfTest extends TestCase
     /**
      * @dataProvider confProvider
      */
-    public function testConfIsValid(string $filename)
+    public function testConfIsValid(string $filename): void
     {
         $containerFactory = new ContainerFactory(__DIR__);
         static::assertNotEmpty($containerFactory->create(__DIR__ . '/TmpAsset', [$filename], []));
     }
 
+    /**
+     * @return mixed[]
+     */
     public function confProvider(): array
     {
         $confFolder = \dirname(__DIR__) . '/conf';

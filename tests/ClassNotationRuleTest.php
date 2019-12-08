@@ -20,7 +20,7 @@ final class ClassNotationRuleTest extends RuleTestCase
         return new ClassNotationRule($broker);
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [

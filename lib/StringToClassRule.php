@@ -12,6 +12,9 @@ use PHPStan\Rules\Rule;
 
 final class StringToClassRule implements Rule
 {
+    /**
+     * @var Broker
+     */
     private $broker;
 
     public function __construct(Broker $broker)

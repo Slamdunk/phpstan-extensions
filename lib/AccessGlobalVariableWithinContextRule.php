@@ -22,6 +22,9 @@ final class AccessGlobalVariableWithinContextRule implements Rule
      */
     private $contextBaseClassOrInterface;
 
+    /**
+     * @var bool[]
+     */
     private $globals = [
         'GLOBALS'  => true,
         '_SERVER'  => true,

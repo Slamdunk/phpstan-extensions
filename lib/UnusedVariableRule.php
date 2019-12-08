@@ -17,6 +17,9 @@ use PHPStan\Rules\RuleErrorBuilder;
 
 final class UnusedVariableRule implements Rule
 {
+    /**
+     * @var bool[]
+     */
     private static $globalVariables = [
         'GLOBALS'  => true,
         '_COOKIE'  => true,
@@ -77,6 +80,11 @@ final class UnusedVariableRule implements Rule
         return $messages;
     }
 
+    /**
+     * @param mixed[] $unusedVariables
+     * @param bool[]  $usedVariables
+     * @param mixed[] $parameters
+     */
     private function gatherVariablesUsage(Node $node, array & $unusedVariables, array & $usedVariables, array $parameters = [], Node $originalNode = null): void
     {
         if ($node instanceof FunctionLike && $node !== $originalNode) {

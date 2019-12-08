@@ -14,6 +14,9 @@ use PHPStan\Rules\Rule;
 
 final class ClassNotationRule implements Rule
 {
+    /**
+     * @var Broker
+     */
     private $broker;
 
     public function __construct(Broker $broker)

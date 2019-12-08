@@ -13,7 +13,7 @@ use PHPStan\Rules\Rule;
 final class SymfonyProcessRule implements Rule
 {
     /**
-     * @var array
+     * @var bool[]
      */
     private $callMap = [
         'exec'            => true,

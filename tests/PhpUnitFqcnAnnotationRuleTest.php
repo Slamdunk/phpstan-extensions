@@ -20,7 +20,7 @@ final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
         return new PhpUnitFqcnAnnotationRule($broker);
     }
 
-    public function testClassConstant()
+    public function testClassConstant(): void
     {
         $this->analyse(
             [
