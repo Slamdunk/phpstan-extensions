@@ -4,10 +4,6 @@ services:
         tags:
             - phpstan.rules.rule
     -
-        class: SlamPhpStan\DateTimeImmutableAlteredAndUnusedRule
-        tags:
-            - phpstan.rules.rule
-    -
         class: SlamPhpStan\GotoRule
         tags:
             - phpstan.rules.rule
