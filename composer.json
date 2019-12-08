@@ -18,12 +18,12 @@
     "require-dev": {
         "nette/di": "^3.0",
         "nette/neon": "^3.0",
-        "phpunit/phpunit": "^7.5",
+        "phpstan/phpstan-php-parser": "^0.12.0",
+        "phpstan/phpstan-phpunit": "^0.12.0",
+        "phpunit/phpunit": "^7.5 || ^8.5",
         "roave/security-advisories": "dev-master",
         "slam/php-cs-fixer-extensions": "^1.18",
-        "slam/php-debug-r": "^1.4",
-        "phpstan/phpstan-php-parser": "^0.12.0",
-        "phpstan/phpstan-phpunit": "^0.12.0"
+        "slam/php-debug-r": "^1.4"
     },
     "extra": {
         "phpstan": {
@@ -38,12 +38,12 @@
         }
     },
     "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ],
         "files": [
             "tests/TestAsset/SymfonyFilesystemRule/mkdir.php",
             "tests/TestAsset/SymfonyProcessRule/shell_exec.php"
-        ],
-        "classmap": [
-            "tests/"
         ]
     }
 }

@@ -29,8 +29,6 @@ includes:
 
 ## Rules
 
-1. `SlamPhpStan\DateTimeImmutableAlteredAndUnusedRule`: check for DateTimeImmutable calls that alter the object
-but don't use the result; likely an error of the transition from mutable DateTime class
 1. `SlamPhpStan\SymfonyFilesystemRule`: forbid calls to raw filesystem functions well wrapped by
 [`symfony/filesystem`](https://github.com/symfony/filesystem) component
 1. `SlamPhpStan\SymfonyProcessRule`: forbid calls to raw system functions well wrapped by

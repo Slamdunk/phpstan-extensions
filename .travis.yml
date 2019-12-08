@@ -9,6 +9,7 @@ matrix:
       env: CS_CHECK=1 STATIC_ANALYSIS=1
     - php: 7.2
     - php: 7.3
+    - php: 7.4
       env: CODE_COVERAGE=1
 
 cache:
