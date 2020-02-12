@@ -29,10 +29,6 @@ includes:
 
 ## Rules
 
-1. `SlamPhpStan\SymfonyFilesystemRule`: forbid calls to raw filesystem functions well wrapped by
-[`symfony/filesystem`](https://github.com/symfony/filesystem) component
-1. `SlamPhpStan\SymfonyProcessRule`: forbid calls to raw system functions well wrapped by
-[`symfony/process`](https://github.com/symfony/process) component
 1. `SlamPhpStan\UnusedVariableRule`: check for variable inside functions never used after initial assignment
 1. `SlamPhpStan\MissingClosureParameterTypehintRule`: requires parameter typehints for closures; WARNING: no PhpDoc
 allowed, see [`phpstan/phpstan-strict-rules#87`](https://github.com/phpstan/phpstan-strict-rules/issues/87)
@@ -52,6 +48,22 @@ allowed, see [`phpstan/phpstan-strict-rules#87`](https://github.com/phpstan/phps
 classes that extend or implement a certain class/interface
 1.  `SlamPhpStan\AccessStaticPropertyWithinModelContextRule`: inhibit the access to static attributes of a class within
 classes that extend or implement a certain class/interface, useful to prohibit usage of singletons in models
+
+## Symfony-specific config
+
+A `symfony-rules.neon` config is present for Symfony projects:
+
+```yaml
+includes:
+    - vendor/slam/phpstan-extensions/conf/symfony-rules.neon
+```
+
+With the following configurations:
+
+1. `SlamPhpStan\SymfonyFilesystemRule`: forbid calls to raw filesystem functions well wrapped by
+[`symfony/filesystem`](https://github.com/symfony/filesystem) component
+1. `SlamPhpStan\SymfonyProcessRule`: forbid calls to raw system functions well wrapped by
+[`symfony/process`](https://github.com/symfony/process) component
 
 ## Yii-specific config
 
