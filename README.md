@@ -5,7 +5,7 @@
 [![Packagist](https://img.shields.io/packagist/v/slam/phpstan-extensions.svg)](https://packagist.org/packages/slam/phpstan-extensions)
 [![Total Downloads](https://img.shields.io/packagist/dt/slam/phpstan-extensions.svg)](https://packagist.org/packages/slam/phpstan-extensions)
 
-Extensions for [PHPStan](https://github.com/phpstan/phpstan)
+Extensions for [PHPStan](https://phpstan.org/)
 
 ## Installation
 
