@@ -34,9 +34,6 @@ final class PhpUnitFqcnAnnotationRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node         $node
-     * @param \PHPStan\Analyser\Scope $scope
-     *
      * @return RuleError[] errors
      */
     public function processNode(Node $node, Scope $scope): array

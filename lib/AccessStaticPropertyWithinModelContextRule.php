@@ -41,7 +41,6 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
 
     /**
      * @param \PhpParser\Node\Expr\StaticPropertyFetch $node
-     * @param \PHPStan\Analyser\Scope                  $scope
      *
      * @return string[] errors
      */

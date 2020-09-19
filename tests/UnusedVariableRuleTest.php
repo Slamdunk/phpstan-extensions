@@ -18,7 +18,7 @@ final class UnusedVariableRuleTest extends RuleTestCase
         return new UnusedVariableRule();
     }
 
-    public function testClassConstant(): void
+    public function testUnusedVariable(): void
     {
         $this->analyse(
             [
@@ -36,6 +36,24 @@ final class UnusedVariableRuleTest extends RuleTestCase
                 [
                     'Closure function has an unused variable $var5bis.',
                     27,
+                ],
+            ]
+        );
+    }
+
+    /**
+     * @requires PHP 7.4
+     */
+    public function testUnusedVariable74(): void
+    {
+        $this->analyse(
+            [
+                __DIR__ . '/TestAsset/UnusedVariableRule/fixture74.php',
+            ],
+            [
+                [
+                    'Function foo() has an unused variable $var1.',
+                    7,
                 ],
             ]
         );

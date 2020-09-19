@@ -52,7 +52,6 @@ final class AccessGlobalVariableWithinContextRule implements Rule
 
     /**
      * @param \PhpParser\Node\Expr\Variable $node
-     * @param \PHPStan\Analyser\Scope       $scope
      *
      * @return string[] errors
      */

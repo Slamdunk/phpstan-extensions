@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SlamPhpStan;
 
+use Exception;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Interface_;
@@ -31,7 +32,6 @@ final class ClassNotationRule implements Rule
 
     /**
      * @param \PhpParser\Node\Stmt\ClassLike $node
-     * @param \PHPStan\Analyser\Scope        $scope
      *
      * @return string[] errors
      */
@@ -69,7 +69,7 @@ final class ClassNotationRule implements Rule
                     $messages[] = \sprintf('Abstract class %s should start with "Abstract" prefix.', $fqcn);
                 }
             }
-            if ($classRef->isSubclassOf(\Exception::class)) {
+            if ($classRef->isSubclassOf(Exception::class)) {
                 if (! \preg_match('/Exception$/', $name)) {
                     $messages[] = \sprintf('Exception class %s should end with "Exception" suffix.', $fqcn);
                 }

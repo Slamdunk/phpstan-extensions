@@ -29,7 +29,6 @@ final class StringToClassRule implements Rule
 
     /**
      * @param \PhpParser\Node\Scalar\String_ $node
-     * @param \PHPStan\Analyser\Scope        $scope
      *
      * @return string[] errors
      */

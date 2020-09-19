@@ -44,7 +44,6 @@ final class SymfonyProcessRule implements Rule
 
     /**
      * @param \PhpParser\Node\Expr\FuncCall $node
-     * @param \PHPStan\Analyser\Scope       $scope
      *
      * @return string[] errors
      */
