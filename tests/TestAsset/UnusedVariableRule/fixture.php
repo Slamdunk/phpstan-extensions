@@ -78,7 +78,7 @@ function foo($ref)
 
     // Variables used in arrow functions
     $arrowFunctionVariable = 'foo';
-    //fn($arrowFunctionVariable) => $arrowFunctionVariable;
+    fn($arrowFunctionVariable) => $arrowFunctionVariable;
 }
 
 class Test
