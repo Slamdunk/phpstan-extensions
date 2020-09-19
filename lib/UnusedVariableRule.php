@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SlamPhpStan;
 
 use PhpParser\Node;
-use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\ArrowFunction;
+use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Closure;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
@@ -40,7 +40,6 @@ final class UnusedVariableRule implements Rule
 
     /**
      * @param \PhpParser\Node\FunctionLike $node
-     * @param \PHPStan\Analyser\Scope      $scope
      *
      * @return RuleError[] errors
      */
@@ -86,11 +85,11 @@ final class UnusedVariableRule implements Rule
      * @param bool[]  $usedVariables
      * @param mixed[] $parameters
      */
-    private function gatherVariablesUsage(Node $node, array & $unusedVariables, array & $usedVariables, array $parameters = [], Node $originalNode = null): void
+    private function gatherVariablesUsage(Node $node, array & $unusedVariables, array & $usedVariables, array $parameters = [], ?Node $originalNode = null): void
     {
         if ($node instanceof FunctionLike
             && $node !== $originalNode
-            && !$node instanceof ArrowFunction
+            && ! $node instanceof ArrowFunction
         ) {
             if ($node instanceof Closure) {
                 foreach ($node->uses as $use) {

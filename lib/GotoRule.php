@@ -18,7 +18,6 @@ final class GotoRule implements Rule
 
     /**
      * @param \PhpParser\Node\Stmt\Goto_ $node
-     * @param \PHPStan\Analyser\Scope    $scope
      *
      * @return string[] errors
      */
