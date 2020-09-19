@@ -42,7 +42,7 @@ final class UnusedVariableRuleTest extends RuleTestCase
     }
 
     /**
-     * @require PHP 7.4
+     * @requires PHP 7.4
      */
     public function testUnusedVariable74(): void
     {
