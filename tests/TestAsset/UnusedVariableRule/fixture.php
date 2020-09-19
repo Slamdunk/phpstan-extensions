@@ -75,6 +75,10 @@ function foo($ref)
 
     $_SESSION = ['var19' => 1];
     $GLOBALS = null;
+
+    // Variables used in arrow functions
+    $arrowFunctionVariable = 'foo';
+    //fn($arrowFunctionVariable) => $arrowFunctionVariable;
 }
 
 class Test
