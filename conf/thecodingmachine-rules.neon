@@ -1,9 +1,0 @@
-services:
-    -
-        class: TheCodingMachine\PHPStan\Rules\Exceptions\DoNotThrowExceptionBaseClassRule
-        tags:
-            - phpstan.rules.rule
-    -
-        class: TheCodingMachine\PHPStan\Rules\Exceptions\ThrowMustBundlePreviousExceptionRule
-        tags:
-            - phpstan.rules.rule
