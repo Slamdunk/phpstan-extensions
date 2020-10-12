@@ -4,7 +4,6 @@ includes:
     - vendor/phpstan/phpstan-php-parser/extension.neon
     - conf/slam-rules.neon
     - conf/symfony-rules.neon
-    - conf/thecodingmachine-rules.neon
 
 parameters:
     checkGenericClassInNonGenericObjectType: false

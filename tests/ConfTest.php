@@ -18,7 +18,7 @@ final class ConfTest extends TestCase
     public function testConfIsValid(string $filename): void
     {
         $containerFactory = new ContainerFactory(__DIR__);
-        static::assertNotEmpty($containerFactory->create(__DIR__ . '/TmpAsset', [$filename], []));
+        self::assertNotEmpty($containerFactory->create(__DIR__ . '/TmpAsset', [$filename], []));
     }
 
     /**
@@ -29,8 +29,8 @@ final class ConfTest extends TestCase
         $confFolder = \dirname(__DIR__) . '/conf';
         $confs      = \glob($confFolder . '/*.neon');
 
-        static::assertIsArray($confs);
-        static::assertNotEmpty($confs);
+        self::assertIsArray($confs);
+        self::assertNotEmpty($confs);
 
         return \array_map(function (string $filename): array {
             return [$filename];
