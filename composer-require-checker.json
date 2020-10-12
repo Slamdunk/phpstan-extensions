@@ -2,6 +2,10 @@
   "symbol-whitelist" : [
     "null", "true", "false",
     "static", "self", "parent",
-    "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object"
+    "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
+    "PHPStan\\Analyser\\Scope",
+    "PHPStan\\Broker\\Broker",
+    "PHPStan\\Rules\\Rule",
+    "PHPStan\\Rules\\RuleErrorBuilder"
   ]
 }
