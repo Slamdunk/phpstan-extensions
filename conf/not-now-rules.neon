@@ -1,0 +1,9 @@
+services:
+    -
+        class: SlamPhpStan\NoTimeRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\NoDateWithoutSecondArgumentRule
+        tags:
+            - phpstan.rules.rule
