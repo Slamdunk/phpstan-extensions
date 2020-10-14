@@ -27,11 +27,11 @@ final class NoTimeRuleTest extends RuleTestCase
             [
                 [
                     'Calling time() directly is forbidden, rely on a clock abstraction like lcobucci/clock',
-                    5,
+                    6,
                 ],
                 [
                     'Calling time() directly is forbidden, rely on a clock abstraction like lcobucci/clock',
-                    6,
+                    7,
                 ],
             ]
         );

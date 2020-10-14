@@ -27,11 +27,11 @@ final class NoDateWithoutSecondArgumentRuleTest extends RuleTestCase
             [
                 [
                     'Calling date() without the second parameter is forbidden, rely on a clock abstraction like lcobucci/clock',
-                    5,
+                    6,
                 ],
                 [
                     'Calling date() without the second parameter is forbidden, rely on a clock abstraction like lcobucci/clock',
-                    6,
+                    7,
                 ],
             ]
         );
