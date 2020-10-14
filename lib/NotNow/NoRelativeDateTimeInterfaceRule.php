@@ -6,19 +6,20 @@ namespace SlamPhpStan\NotNow;
 
 use DateTimeInterface;
 use PhpParser\Node;
+use PhpParser\Node\Expr\New_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Type\ConstantScalarType;
 use PHPStan\Type\ObjectType;
 
 /**
- * @implements \PHPStan\Rules\Rule<\PhpParser\Node\Expr\New_>
+ * @implements Rule<New_>
  */
 final class NoRelativeDateTimeInterfaceRule implements Rule
 {
     public function getNodeType(): string
     {
-        return Node\Expr\New_::class;
+        return New_::class;
     }
 
     /**

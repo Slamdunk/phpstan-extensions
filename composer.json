@@ -21,7 +21,7 @@
         "phpstan/phpstan-php-parser": "^0.12.2",
         "phpstan/phpstan-phpunit": "^0.12.16",
         "phpunit/phpunit": "^9.4",
-        "slam/php-cs-fixer-extensions": "^1.19",
+        "slam/php-cs-fixer-extensions": "^2.0",
         "slam/php-debug-r": "^1.6"
     },
     "extra": {

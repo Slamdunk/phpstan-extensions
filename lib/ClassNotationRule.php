@@ -13,12 +13,12 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<ClassLike>
+ */
 final class ClassNotationRule implements Rule
 {
-    /**
-     * @var Broker
-     */
-    private $broker;
+    private Broker $broker;
 
     public function __construct(Broker $broker)
     {
@@ -31,8 +31,6 @@ final class ClassNotationRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Stmt\ClassLike $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array

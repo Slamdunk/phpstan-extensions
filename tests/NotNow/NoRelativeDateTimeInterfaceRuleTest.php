@@ -11,6 +11,8 @@ use SlamPhpStan\NotNow\NoRelativeDateTimeInterfaceRule;
 /**
  * @covers \SlamPhpStan\NotNow\ForbiddenRelativeFormats
  * @covers \SlamPhpStan\NotNow\NoRelativeDateTimeInterfaceRule
+ *
+ * @extends RuleTestCase<NoRelativeDateTimeInterfaceRule>
  */
 final class NoRelativeDateTimeInterfaceRuleTest extends RuleTestCase
 {

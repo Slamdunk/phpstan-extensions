@@ -10,22 +10,12 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<Variable>
+ */
 final class AccessGlobalVariableWithinContextRule implements Rule
 {
-    /**
-     * @var Broker
-     */
-    private $broker;
-
-    /**
-     * @var string
-     */
-    private $contextBaseClassOrInterface;
-
-    /**
-     * @var bool[]
-     */
-    private $globals = [
+    private const GLOBALS = [
         'GLOBALS'  => true,
         '_SERVER'  => true,
         '_GET'     => true,
@@ -38,6 +28,8 @@ final class AccessGlobalVariableWithinContextRule implements Rule
         'argc'     => true,
         'argv'     => true,
     ];
+    private Broker $broker;
+    private string $contextBaseClassOrInterface;
 
     public function __construct(Broker $broker, string $contextBaseClassOrInterface)
     {
@@ -51,8 +43,6 @@ final class AccessGlobalVariableWithinContextRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Expr\Variable $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array
@@ -61,7 +51,7 @@ final class AccessGlobalVariableWithinContextRule implements Rule
             return [];
         }
 
-        if (! isset($this->globals[$node->name])) {
+        if (! isset(self::GLOBALS[$node->name])) {
             return [];
         }
 

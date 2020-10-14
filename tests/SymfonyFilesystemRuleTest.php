@@ -10,6 +10,8 @@ use SlamPhpStan\SymfonyFilesystemRule;
 
 /**
  * @covers \SlamPhpStan\SymfonyFilesystemRule
+ *
+ * @extends RuleTestCase<SymfonyFilesystemRule>
  */
 final class SymfonyFilesystemRuleTest extends RuleTestCase
 {

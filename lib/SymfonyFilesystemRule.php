@@ -6,16 +6,17 @@ namespace SlamPhpStan;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<FuncCall>
+ */
 final class SymfonyFilesystemRule implements Rule
 {
-    /**
-     * @var array[]
-     */
-    private $callMap = [
+    private const CALL_MAP = [
         'copy'              => ['copy'],
         'mkdir'             => ['mkdir'],
         'file_exists'       => ['exists'],
@@ -35,10 +36,7 @@ final class SymfonyFilesystemRule implements Rule
         'file_put_contents' => ['dumpFile', 'appendToFile'],
     ];
 
-    /**
-     * @var Broker
-     */
-    private $broker;
+    private Broker $broker;
 
     public function __construct(Broker $broker)
     {
@@ -51,13 +49,11 @@ final class SymfonyFilesystemRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Expr\FuncCall $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        if (! ($node->name instanceof \PhpParser\Node\Name)) {
+        if (! ($node->name instanceof Name)) {
             return [];
         }
 
@@ -66,13 +62,13 @@ final class SymfonyFilesystemRule implements Rule
         }
 
         $calledFunctionName = $this->broker->resolveFunctionName($node->name, $scope);
-        if (! isset($this->callMap[$calledFunctionName])) {
+        if (! isset(self::CALL_MAP[$calledFunctionName])) {
             return [];
         }
 
         return [\sprintf('Function %s is unsafe to use, rely on Symfony component Filesystem::%s instead.',
             $calledFunctionName,
-            \implode(' or Filesystem::', $this->callMap[$calledFunctionName])
+            \implode(' or Filesystem::', self::CALL_MAP[$calledFunctionName])
         )];
     }
 }

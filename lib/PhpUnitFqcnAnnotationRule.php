@@ -11,17 +11,16 @@ use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
 
+/**
+ * @implements Rule<Node>
+ */
 final class PhpUnitFqcnAnnotationRule implements Rule
 {
-    /**
-     * @var Broker
-     */
-    private $broker;
-
+    private Broker $broker;
     /**
      * @var bool[]
      */
-    private $alreadyParsedDocComments = [];
+    private array $alreadyParsedDocComments = [];
 
     public function __construct(Broker $broker)
     {
@@ -45,8 +44,8 @@ final class PhpUnitFqcnAnnotationRule implements Rule
         }
         $hash = \sha1(\sprintf('%s:%s:%s:%s',
             $scope->getFile(),
-            $docComment->getLine(),
-            $docComment->getFilePos(),
+            $docComment->getStartLine(),
+            $docComment->getStartFilePos(),
             $docComment->getText()
         ));
         if (isset($this->alreadyParsedDocComments[$hash])) {
@@ -64,7 +63,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
                 continue;
             }
             if (! $this->broker->hasClass($matches['className'])) {
-                $messages[] = RuleErrorBuilder::message(\sprintf('Class %s does not exist.', $matches['className']))->line($docComment->getLine() + $lineNumber)->build();
+                $messages[] = RuleErrorBuilder::message(\sprintf('Class %s does not exist.', $matches['className']))->line($docComment->getStartLine() + $lineNumber)->build();
             }
         }
 

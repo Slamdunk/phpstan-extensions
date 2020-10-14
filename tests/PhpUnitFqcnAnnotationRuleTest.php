@@ -10,6 +10,8 @@ use SlamPhpStan\PhpUnitFqcnAnnotationRule;
 
 /**
  * @covers \SlamPhpStan\PhpUnitFqcnAnnotationRule
+ *
+ * @extends RuleTestCase<PhpUnitFqcnAnnotationRule>
  */
 final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
 {

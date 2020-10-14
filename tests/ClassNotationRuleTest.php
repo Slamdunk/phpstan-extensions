@@ -10,6 +10,8 @@ use SlamPhpStan\ClassNotationRule;
 
 /**
  * @covers \SlamPhpStan\ClassNotationRule
+ *
+ * @extends RuleTestCase<ClassNotationRule>
  */
 final class ClassNotationRuleTest extends RuleTestCase
 {

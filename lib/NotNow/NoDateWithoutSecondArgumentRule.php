@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace SlamPhpStan\NotNow;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\FuncCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 
 /**
- * @implements \PHPStan\Rules\Rule<\PhpParser\Node\Expr\FuncCall>
+ * @implements Rule<FuncCall>
  */
 final class NoDateWithoutSecondArgumentRule implements Rule
 {
@@ -23,7 +24,7 @@ final class NoDateWithoutSecondArgumentRule implements Rule
 
     public function getNodeType(): string
     {
-        return Node\Expr\FuncCall::class;
+        return FuncCall::class;
     }
 
     /**

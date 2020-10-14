@@ -10,6 +10,8 @@ use SlamPhpStan\AccessGlobalVariableWithinContextRule;
 
 /**
  * @covers \SlamPhpStan\AccessGlobalVariableWithinContextRule
+ *
+ * @extends RuleTestCase<AccessGlobalVariableWithinContextRule>
  */
 final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
 {
