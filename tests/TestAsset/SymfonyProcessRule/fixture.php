@@ -20,6 +20,10 @@ class Foo
 
         shell_exec();
         self::shell_exec();
+
+        \idontexist();
+        $var = 'shell_exec';
+        $var();
     }
 
     public static function shell_exec()

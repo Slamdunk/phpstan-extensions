@@ -20,6 +20,10 @@ class Foo
 
         mkdir();
         self::tempnam('c', 'd');
+
+        \idontexist();
+        $var = 'mkdir';
+        $var();
     }
 
     public static function tempnam($dir, $prefix)
