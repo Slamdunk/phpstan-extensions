@@ -1,6 +1,6 @@
 <?php
 
-namespace SlamPhpStan\Tests\TestAsset\NoTimeRule;
+namespace SlamPhpStan\Tests\NotNow\TestAsset\NoTimeRule;
 
 $a1 = \time();
 $a2 = time();

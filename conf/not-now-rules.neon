@@ -1,9 +1,9 @@
 services:
     -
-        class: SlamPhpStan\NoTimeRule
+        class: SlamPhpStan\NotNow\NoTimeRule
         tags:
             - phpstan.rules.rule
     -
-        class: SlamPhpStan\NoDateWithoutSecondArgumentRule
+        class: SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule
         tags:
             - phpstan.rules.rule

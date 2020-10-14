@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SlamPhpStan;
+namespace SlamPhpStan\NotNow;
 
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
@@ -12,7 +12,7 @@ use PHPStan\Rules\Rule;
 /**
  * @implements \PHPStan\Rules\Rule<\PhpParser\Node\Expr\FuncCall>
  */
-final class NoDateWithoutSecondArgumentRule implements Rule
+final class NoTimeRule implements Rule
 {
     private ReflectionProvider $reflectionProvider;
 
@@ -35,14 +35,10 @@ final class NoDateWithoutSecondArgumentRule implements Rule
             return [];
         }
 
-        if ('date' !== $this->reflectionProvider->resolveFunctionName($node->name, $scope)) {
+        if ('time' !== $this->reflectionProvider->resolveFunctionName($node->name, $scope)) {
             return [];
         }
 
-        if (2 === \count($node->args)) {
-            return [];
-        }
-
-        return ['Calling date() without the second parameter is forbidden, rely on a clock abstraction like lcobucci/clock'];
+        return ['Calling time() directly is forbidden, rely on a clock abstraction like lcobucci/clock'];
     }
 }

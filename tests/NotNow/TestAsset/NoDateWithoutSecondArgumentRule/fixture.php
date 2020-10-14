@@ -1,6 +1,6 @@
 <?php
 
-namespace SlamPhpStan\Tests\TestAsset\NoDateWithoutSecondArgumentRule;
+namespace SlamPhpStan\Tests\NotNow\TestAsset\NoDateWithoutSecondArgumentRule;
 
 $a1 = \date('d');
 $a2 = date(DATE_RFC2822);

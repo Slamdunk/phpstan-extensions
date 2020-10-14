@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SlamPhpStan\Tests;
+namespace SlamPhpStan\Tests\NotNow;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
-use SlamPhpStan\NoDateWithoutSecondArgumentRule;
+use SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule;
 
 /**
- * @covers \SlamPhpStan\NoDateWithoutSecondArgumentRule
+ * @covers \SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule
  */
 final class NoDateWithoutSecondArgumentRuleTest extends RuleTestCase
 {

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SlamPhpStan\Tests;
+namespace SlamPhpStan\Tests\NotNow;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
-use SlamPhpStan\NoTimeRule;
+use SlamPhpStan\NotNow\NoTimeRule;
 
 /**
- * @covers \SlamPhpStan\NoTimeRule
+ * @covers \SlamPhpStan\NotNow\NoTimeRule
  */
 final class NoTimeRuleTest extends RuleTestCase
 {
