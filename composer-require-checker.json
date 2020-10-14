@@ -5,7 +5,10 @@
     "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
     "PHPStan\\Analyser\\Scope",
     "PHPStan\\Broker\\Broker",
+    "PHPStan\\Reflection\\ReflectionProvider",
     "PHPStan\\Rules\\Rule",
-    "PHPStan\\Rules\\RuleErrorBuilder"
+    "PHPStan\\Rules\\RuleErrorBuilder",
+    "PHPStan\\Type\\ConstantScalarType",
+    "PHPStan\\Type\\ObjectType"
   ]
 }

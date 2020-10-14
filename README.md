@@ -49,6 +49,28 @@ classes that extend or implement a certain class/interface
 1.  `SlamPhpStan\AccessStaticPropertyWithinModelContextRule`: inhibit the access to static attributes of a class within
 classes that extend or implement a certain class/interface, useful to prohibit usage of singletons in models
 
+## Not-NOW config
+
+A `not-now-rules.neon` config is present for forbidding raw date system calls:
+
+```yaml
+includes:
+    - vendor/slam/phpstan-extensions/conf/not-now-rules.neon
+```
+
+These rules forbid:
+
+1. `new DateTimeImmutable()`
+1. `new DateTime('yesterday')`
+1. `date('Y-m-d')`
+1. `time()`
+1. `strtotime('noon')`
+
+You should instead rely on a clock abstraction like [`lcobucci/clock`](https://github.com/lcobucci/clock).
+
+WARNING: the rules are not perfect, a user can tricks them easily; they are meant only to help the transition to
+a proper clock abstraction.
+
 ## Symfony-specific config
 
 A `symfony-rules.neon` config is present for Symfony projects:
