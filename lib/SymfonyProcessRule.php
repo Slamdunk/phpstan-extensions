@@ -6,16 +6,17 @@ namespace SlamPhpStan;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
+use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<FuncCall>
+ */
 final class SymfonyProcessRule implements Rule
 {
-    /**
-     * @var bool[]
-     */
-    private $callMap = [
+    private const CALL_MAP = [
         'exec'            => true,
         'passthru'        => true,
         'proc_close'      => true,
@@ -49,7 +50,7 @@ final class SymfonyProcessRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        if (! ($node->name instanceof \PhpParser\Node\Name)) {
+        if (! ($node->name instanceof Name)) {
             return [];
         }
 
@@ -58,7 +59,7 @@ final class SymfonyProcessRule implements Rule
         }
 
         $calledFunctionName = $this->broker->resolveFunctionName($node->name, $scope);
-        if (! isset($this->callMap[$calledFunctionName])) {
+        if (! isset(self::CALL_MAP[$calledFunctionName])) {
             return [];
         }
 

@@ -10,6 +10,8 @@ use SlamPhpStan\AccessStaticPropertyWithinModelContextRule;
 
 /**
  * @covers \SlamPhpStan\AccessStaticPropertyWithinModelContextRule
+ *
+ * @extends RuleTestCase<AccessStaticPropertyWithinModelContextRule>
  */
 final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
 {

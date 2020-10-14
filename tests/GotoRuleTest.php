@@ -10,6 +10,8 @@ use SlamPhpStan\GotoRule;
 
 /**
  * @covers \SlamPhpStan\GotoRule
+ *
+ * @extends RuleTestCase<GotoRule>
  */
 final class GotoRuleTest extends RuleTestCase
 {

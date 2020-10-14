@@ -10,6 +10,8 @@ use SlamPhpStan\MissingClosureParameterTypehintRule;
 
 /**
  * @covers \SlamPhpStan\MissingClosureParameterTypehintRule
+ *
+ * @extends RuleTestCase<MissingClosureParameterTypehintRule>
  */
 final class MissingClosureParameterTypehintRuleTest extends RuleTestCase
 {

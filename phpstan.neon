@@ -7,7 +7,6 @@ includes:
     - conf/not-now-rules.neon
 
 parameters:
-    checkGenericClassInNonGenericObjectType: false
     paths:
         - lib/
         - tests/

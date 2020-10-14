@@ -10,6 +10,8 @@ use SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule;
 
 /**
  * @covers \SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule
+ *
+ * @extends RuleTestCase<NoDateWithoutSecondArgumentRule>
  */
 final class NoDateWithoutSecondArgumentRuleTest extends RuleTestCase
 {

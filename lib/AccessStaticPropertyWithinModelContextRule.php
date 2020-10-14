@@ -10,22 +10,14 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<StaticPropertyFetch>
+ */
 final class AccessStaticPropertyWithinModelContextRule implements Rule
 {
-    /**
-     * @var Broker
-     */
-    private $broker;
-
-    /**
-     * @var string
-     */
-    private $modelBaseClassOrInterface;
-
-    /**
-     * @var string
-     */
-    private $singletonAccessor;
+    private Broker $broker;
+    private string $modelBaseClassOrInterface;
+    private string $singletonAccessor;
 
     public function __construct(Broker $broker, string $modelBaseClassOrInterface, string $singletonAccessor)
     {
@@ -40,8 +32,6 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Expr\StaticPropertyFetch $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array

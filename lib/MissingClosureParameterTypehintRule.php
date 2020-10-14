@@ -5,19 +5,21 @@ declare(strict_types=1);
 namespace SlamPhpStan;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\Closure;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<Closure>
+ */
 final class MissingClosureParameterTypehintRule implements Rule
 {
     public function getNodeType(): string
     {
-        return \PhpParser\Node\Expr\Closure::class;
+        return Closure::class;
     }
 
     /**
-     * @param \PhpParser\Node\Expr\Closure $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array

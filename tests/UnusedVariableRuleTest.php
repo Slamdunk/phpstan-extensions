@@ -10,6 +10,8 @@ use SlamPhpStan\UnusedVariableRule;
 
 /**
  * @covers \SlamPhpStan\UnusedVariableRule
+ *
+ * @extends RuleTestCase<UnusedVariableRule>
  */
 final class UnusedVariableRuleTest extends RuleTestCase
 {

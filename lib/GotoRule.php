@@ -9,6 +9,9 @@ use PhpParser\Node\Stmt\Goto_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<Goto_>
+ */
 final class GotoRule implements Rule
 {
     public function getNodeType(): string
@@ -17,8 +20,6 @@ final class GotoRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Stmt\Goto_ $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array

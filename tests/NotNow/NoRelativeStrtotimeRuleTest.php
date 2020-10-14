@@ -11,6 +11,8 @@ use SlamPhpStan\NotNow\NoRelativeStrtotimeRule;
 /**
  * @covers \SlamPhpStan\NotNow\ForbiddenRelativeFormats
  * @covers \SlamPhpStan\NotNow\NoRelativeStrtotimeRule
+ *
+ * @extends RuleTestCase<NoRelativeStrtotimeRule>
  */
 final class NoRelativeStrtotimeRuleTest extends RuleTestCase
 {

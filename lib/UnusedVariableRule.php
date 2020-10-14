@@ -16,12 +16,12 @@ use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
 
+/**
+ * @implements Rule<FunctionLike>
+ */
 final class UnusedVariableRule implements Rule
 {
-    /**
-     * @var bool[]
-     */
-    private static $globalVariables = [
+    private const GLOBAL_VARIABLES = [
         'GLOBALS'  => true,
         '_COOKIE'  => true,
         '_ENV'     => true,
@@ -39,8 +39,6 @@ final class UnusedVariableRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\FunctionLike $node
-     *
      * @return RuleError[] errors
      */
     public function processNode(Node $node, Scope $scope): array
@@ -103,7 +101,7 @@ final class UnusedVariableRule implements Rule
         }
         if ($node instanceof Assign) {
             if ($node->var instanceof Variable) {
-                if (\is_string($node->var->name) && ! isset($parameters[$node->var->name]) && ! isset(self::$globalVariables[$node->var->name])) {
+                if (\is_string($node->var->name) && ! isset($parameters[$node->var->name]) && ! isset(self::GLOBAL_VARIABLES[$node->var->name])) {
                     $unusedVariables[$node->var->name] = $node->var;
                 }
             } else {

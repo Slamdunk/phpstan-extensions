@@ -10,12 +10,12 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<String_>
+ */
 final class StringToClassRule implements Rule
 {
-    /**
-     * @var Broker
-     */
-    private $broker;
+    private Broker $broker;
 
     public function __construct(Broker $broker)
     {
@@ -28,8 +28,6 @@ final class StringToClassRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Scalar\String_ $node
-     *
      * @return string[] errors
      */
     public function processNode(Node $node, Scope $scope): array

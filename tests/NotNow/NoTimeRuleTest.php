@@ -10,6 +10,8 @@ use SlamPhpStan\NotNow\NoTimeRule;
 
 /**
  * @covers \SlamPhpStan\NotNow\NoTimeRule
+ *
+ * @extends RuleTestCase<NoTimeRule>
  */
 final class NoTimeRuleTest extends RuleTestCase
 {

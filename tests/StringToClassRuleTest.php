@@ -10,6 +10,8 @@ use SlamPhpStan\StringToClassRule;
 
 /**
  * @covers \SlamPhpStan\StringToClassRule
+ *
+ * @extends RuleTestCase<StringToClassRule>
  */
 final class StringToClassRuleTest extends RuleTestCase
 {

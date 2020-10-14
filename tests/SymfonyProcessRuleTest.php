@@ -10,6 +10,8 @@ use SlamPhpStan\SymfonyProcessRule;
 
 /**
  * @covers \SlamPhpStan\SymfonyProcessRule
+ *
+ * @extends RuleTestCase<SymfonyProcessRule>
  */
 final class SymfonyProcessRuleTest extends RuleTestCase
 {
