@@ -1,0 +1,63 @@
+<?php
+
+declare(strict_types=1);
+
+namespace SlamPhpStan\NotNow;
+
+use DateTimeInterface;
+use PhpParser\Node;
+use PHPStan\Analyser\Scope;
+use PHPStan\Rules\Rule;
+use PHPStan\Type\ConstantScalarType;
+use PHPStan\Type\ObjectType;
+
+/**
+ * @implements \PHPStan\Rules\Rule<\PhpParser\Node\Expr\New_>
+ */
+final class NoRelativeDateTimeInterfaceRule implements Rule
+{
+    public function getNodeType(): string
+    {
+        return Node\Expr\New_::class;
+    }
+
+    /**
+     * @return string[] errors
+     */
+    public function processNode(Node $node, Scope $scope): array
+    {
+        $type = $scope->getType($node);
+        if (! $type instanceof ObjectType) {
+            return [];
+        }
+
+        if (null === $type->getAncestorWithClassName(DateTimeInterface::class)) {
+            return [];
+        }
+
+        if (0 === \count($node->args)) {
+            return [
+                \sprintf('Instantiating %s without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+                    DateTimeInterface::class
+                ),
+            ];
+        }
+
+        $argType = $scope->getType($node->args[0]->value);
+        if (! $argType instanceof ConstantScalarType) {
+            return [];
+        }
+
+        $value = $argType->getValue();
+        if (! \is_string($value) || ! ForbiddenRelativeFormats::isForbidden($value)) {
+            return [];
+        }
+
+        return [
+            \sprintf('Instantiating %s with relative datetime "%s" is forbidden, rely on a clock abstraction like lcobucci/clock',
+                DateTimeInterface::class,
+                $value
+            ),
+        ];
+    }
+}

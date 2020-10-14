@@ -7,3 +7,11 @@ services:
         class: SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule
         tags:
             - phpstan.rules.rule
+    -
+        class: SlamPhpStan\NotNow\NoRelativeStrtotimeRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\NotNow\NoRelativeDateTimeInterfaceRule
+        tags:
+            - phpstan.rules.rule

@@ -18,3 +18,8 @@ $a5 = $string();
 
 $a6 = \strtotime('now', 1500000000);
 $a7 = strtotime('noon', 1500000000);
+
+$myFunc = static function (): string {
+    return 'now';
+};
+$a8 = \strtotime($myFunc());
