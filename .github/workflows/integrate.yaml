@@ -6,7 +6,7 @@ on:
     branches:
       - "master"
   schedule:
-    - cron: '0 3 1-7 * 1'
+    - cron: '0 3 3 * *'
 
 jobs:
   composer-json-lint:
