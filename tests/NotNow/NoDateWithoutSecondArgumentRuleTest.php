@@ -20,7 +20,7 @@ final class NoDateWithoutSecondArgumentRuleTest extends RuleTestCase
         return new NoDateWithoutSecondArgumentRule($this->createReflectionProvider());
     }
 
-    public function testClassConstant(): void
+    public function testCases(): void
     {
         $this->analyse(
             [

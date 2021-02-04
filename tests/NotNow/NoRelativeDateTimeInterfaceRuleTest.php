@@ -21,7 +21,7 @@ final class NoRelativeDateTimeInterfaceRuleTest extends RuleTestCase
         return new NoRelativeDateTimeInterfaceRule();
     }
 
-    public function testClassConstant(): void
+    public function testCases(): void
     {
         $this->analyse(
             [
@@ -47,6 +47,10 @@ final class NoRelativeDateTimeInterfaceRuleTest extends RuleTestCase
                 [
                     'Instantiating DateTimeInterface with relative datetime "yesterday" is forbidden, rely on a clock abstraction like lcobucci/clock',
                     11,
+                ],
+                [
+                    'Instantiating DateTimeInterface with relative datetime "now" is forbidden, rely on a clock abstraction like lcobucci/clock',
+                    16,
                 ],
             ]
         );

@@ -21,7 +21,7 @@ final class NoRelativeStrtotimeRuleTest extends RuleTestCase
         return new NoRelativeStrtotimeRule($this->createReflectionProvider());
     }
 
-    public function testClassConstant(): void
+    public function testCases(): void
     {
         $this->analyse(
             [
@@ -35,6 +35,10 @@ final class NoRelativeStrtotimeRuleTest extends RuleTestCase
                 [
                     'Calling strtotime() with relative datetime "noon" without the second argument is forbidden, rely on a clock abstraction like lcobucci/clock',
                     7,
+                ],
+                [
+                    'Calling strtotime() with relative datetime "now" without the second argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+                    12,
                 ],
             ]
         );
