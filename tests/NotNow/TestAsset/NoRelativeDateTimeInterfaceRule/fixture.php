@@ -15,12 +15,12 @@ $myFunc1 = static function (): string {
 };
 $a6 = new \DateTimeImmutable($myFunc1());
 
+$class = 'DateTime';
+$a5 = new $class();
+
 // OK
 $a3 = new \SlamPhpStan\Tests\NotNow\TestAsset\NoRelativeDateTimeInterfaceRule\NonDateTime('now');
 $a4 = new NonDateTimeImmutable('noon');
-
-$class = 'DateTime';
-$a5 = new $class();
 
 $myFunc2 = static function (): string {
     return '2020-10-14T00:00:00+02:00';

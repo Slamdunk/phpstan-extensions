@@ -52,6 +52,10 @@ final class NoRelativeDateTimeInterfaceRuleTest extends RuleTestCase
                     'Instantiating DateTimeInterface with relative datetime "now" is forbidden, rely on a clock abstraction like lcobucci/clock',
                     16,
                 ],
+                [
+                    'Instantiating DateTimeInterface without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+                    19,
+                ],
             ]
         );
     }
