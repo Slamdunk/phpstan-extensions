@@ -56,7 +56,8 @@ final class NoRelativeStrtotimeRule implements Rule
         }
 
         return [
-            \sprintf('Calling strtotime() with relative datetime "%s" without the second argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+            \sprintf(
+                'Calling strtotime() with relative datetime "%s" without the second argument is forbidden, rely on a clock abstraction like lcobucci/clock',
                 $value
             ),
         ];

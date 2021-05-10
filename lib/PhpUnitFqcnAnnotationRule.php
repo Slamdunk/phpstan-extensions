@@ -42,7 +42,8 @@ final class PhpUnitFqcnAnnotationRule implements Rule
         if (empty($docComment)) {
             return $messages;
         }
-        $hash = \sha1(\sprintf('%s:%s:%s:%s',
+        $hash = \sha1(\sprintf(
+            '%s:%s:%s:%s',
             $scope->getFile(),
             $docComment->getStartLine(),
             $docComment->getStartFilePos(),

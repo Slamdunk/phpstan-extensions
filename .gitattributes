@@ -2,7 +2,7 @@
 /tests export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
-.php_cs export-ignore
+.php-cs-fixer.php export-ignore
 Makefile export-ignore
 composer-require-checker.json export-ignore
 phpstan.neon export-ignore

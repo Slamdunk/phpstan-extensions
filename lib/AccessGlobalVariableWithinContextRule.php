@@ -66,7 +66,8 @@ final class AccessGlobalVariableWithinContextRule implements Rule
 
         $modelBaseClassOrInterface = $this->broker->getClass($this->contextBaseClassOrInterface);
 
-        return [\sprintf('Class %s %s %s and uses $%s: accessing globals in this context is considered an anti-pattern',
+        return [\sprintf(
+            'Class %s %s %s and uses $%s: accessing globals in this context is considered an anti-pattern',
             $classReflection->getDisplayName(),
             $modelBaseClassOrInterface->isInterface() ? 'implements' : 'extends',
             $this->contextBaseClassOrInterface,

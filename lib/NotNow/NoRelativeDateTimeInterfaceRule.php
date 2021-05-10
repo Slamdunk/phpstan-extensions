@@ -38,7 +38,8 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
 
         if (0 === \count($node->args)) {
             return [
-                \sprintf('Instantiating %s without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+                \sprintf(
+                    'Instantiating %s without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
                     DateTimeInterface::class
                 ),
             ];
@@ -55,7 +56,8 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
         }
 
         return [
-            \sprintf('Instantiating %s with relative datetime "%s" is forbidden, rely on a clock abstraction like lcobucci/clock',
+            \sprintf(
+                'Instantiating %s with relative datetime "%s" is forbidden, rely on a clock abstraction like lcobucci/clock',
                 DateTimeInterface::class,
                 $value
             ),

@@ -15,15 +15,9 @@ use SlamPhpStan\AccessStaticPropertyWithinModelContextRule;
  */
 final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
 {
-    /**
-     * @var string
-     */
-    private $modelBaseClassOrInterface;
+    private string $modelBaseClassOrInterface;
 
-    /**
-     * @var string
-     */
-    private $singletonAccessor;
+    private string $singletonAccessor;
 
     /**
      * @param string  $name
@@ -57,7 +51,8 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
             ],
             [
                 [
-                    \sprintf('Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
+                    \sprintf(
+                        'Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
                         TestAsset\AccessStaticPropertyWithinModelContextRule\ModelAccessingYiiAppSingletons::class,
                         $this->modelBaseClassOrInterface,
                         $this->singletonAccessor
@@ -65,7 +60,8 @@ final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
                     8,
                 ],
                 [
-                    \sprintf('Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
+                    \sprintf(
+                        'Class %s implements %s and uses %s::$app: accessing a singleton in this context is considered an anti-pattern',
                         TestAsset\AccessStaticPropertyWithinModelContextRule\ModelAccessingYiiAppSingletons::class,
                         $this->modelBaseClassOrInterface,
                         $this->singletonAccessor

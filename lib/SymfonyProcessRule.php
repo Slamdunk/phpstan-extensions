@@ -28,10 +28,7 @@ final class SymfonyProcessRule implements Rule
         'system'          => true,
     ];
 
-    /**
-     * @var Broker
-     */
-    private $broker;
+    private Broker $broker;
 
     public function __construct(Broker $broker)
     {

@@ -66,7 +66,8 @@ final class UnusedVariableRule implements Rule
 
         foreach ($unusedVariables as $varName => $var) {
             if (! isset($usedVariables[$varName])) {
-                $messages[] = RuleErrorBuilder::message(\sprintf('%s has an unused variable $%s.',
+                $messages[] = RuleErrorBuilder::message(\sprintf(
+                    '%s has an unused variable $%s.',
                     \in_array('name', $node->getSubNodeNames(), true) && isset($node->name)
                         ? \sprintf('Function %s()', $node->name)
                         : 'Closure function',
