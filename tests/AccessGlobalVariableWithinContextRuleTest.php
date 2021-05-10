@@ -15,10 +15,7 @@ use SlamPhpStan\AccessGlobalVariableWithinContextRule;
  */
 final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
 {
-    /**
-     * @var string
-     */
-    private $contextBaseClassOrInterface;
+    private string $contextBaseClassOrInterface;
 
     /**
      * @param string  $name
@@ -47,21 +44,24 @@ final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
             ],
             [
                 [
-                    \sprintf('Class %s implements %s and uses $_POST: accessing globals in this context is considered an anti-pattern',
+                    \sprintf(
+                        'Class %s implements %s and uses $_POST: accessing globals in this context is considered an anti-pattern',
                         TestAsset\AccessGlobalVariableWithinContextRule\ModelAccessingGlobalVariable::class,
                         $this->contextBaseClassOrInterface
                     ),
                     8,
                 ],
                 [
-                    \sprintf('Class %s implements %s and uses $GLOBALS: accessing globals in this context is considered an anti-pattern',
+                    \sprintf(
+                        'Class %s implements %s and uses $GLOBALS: accessing globals in this context is considered an anti-pattern',
                         TestAsset\AccessGlobalVariableWithinContextRule\ModelAccessingGlobalVariable::class,
                         $this->contextBaseClassOrInterface
                     ),
                     9,
                 ],
                 [
-                    \sprintf('Class %s implements %s and uses $argc: accessing globals in this context is considered an anti-pattern',
+                    \sprintf(
+                        'Class %s implements %s and uses $argc: accessing globals in this context is considered an anti-pattern',
                         TestAsset\AccessGlobalVariableWithinContextRule\ModelAccessingGlobalVariable::class,
                         $this->contextBaseClassOrInterface
                     ),
