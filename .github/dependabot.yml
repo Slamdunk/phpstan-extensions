@@ -9,5 +9,5 @@ updates:
       include: "scope"
       prefix: "composer"
     labels:
-      - "dependency"
+      - "dependencies"
     versioning-strategy: "widen"
