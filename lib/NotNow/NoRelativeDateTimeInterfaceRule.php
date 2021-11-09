@@ -36,7 +36,9 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
             return [];
         }
 
-        if (0 === \count($node->args)) {
+        $args = $node->getArgs();
+
+        if (0 === \count($args)) {
             return [
                 \sprintf(
                     'Instantiating %s without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
@@ -45,7 +47,7 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
             ];
         }
 
-        $argType = $scope->getType($node->args[0]->value);
+        $argType = $scope->getType($args[0]->value);
         if (! $argType instanceof ConstantScalarType) {
             return [];
         }

@@ -11,10 +11,11 @@ parameters:
     paths:
         - lib/
         - tests/
-    excludes_analyse:
-        - tests/NotNow/TestAsset/
-        - tests/TestAsset/
-        - tests/TmpAsset/
+    excludePaths:
+        analyseAndScan:
+            - tests/NotNow/TestAsset/
+            - tests/TestAsset/
+            - tests/TmpAsset/
 
 services:
 	scopeIsInClass:

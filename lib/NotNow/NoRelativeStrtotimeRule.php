@@ -41,11 +41,13 @@ final class NoRelativeStrtotimeRule implements Rule
             return [];
         }
 
-        if (1 !== \count($node->args)) {
+        $args = $node->getArgs();
+
+        if (1 !== \count($args)) {
             return [];
         }
 
-        $argType = $scope->getType($node->args[0]->value);
+        $argType = $scope->getType($args[0]->value);
         if (! $argType instanceof ConstantScalarType) {
             return [];
         }

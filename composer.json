@@ -12,17 +12,17 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "nikic/php-parser": "^v4.10.5",
-        "phpstan/phpstan": "^0.12.86"
+        "nikic/php-parser": "^v4.13.1",
+        "phpstan/phpstan": "^1.1.1"
     },
     "require-dev": {
         "malukenho/mcbumpface": "^1.1.5",
-        "nette/di": "^v3.0.8",
-        "nette/neon": "^v3.2.2",
-        "phpstan/phpstan-php-parser": "^0.12.3",
-        "phpstan/phpstan-phpunit": "^0.12.18",
-        "phpunit/phpunit": "^9.5.4",
-        "slam/php-cs-fixer-extensions": "^v3.0.1",
+        "nette/di": "^v3.0.11",
+        "nette/neon": "^v3.3.1",
+        "phpstan/phpstan-php-parser": "^1.0.0",
+        "phpstan/phpstan-phpunit": "^1.0.0",
+        "phpunit/phpunit": "^9.5.10",
+        "slam/php-cs-fixer-extensions": "^v3.1.0",
         "slam/php-debug-r": "^v1.7.0"
     },
     "extra": {
