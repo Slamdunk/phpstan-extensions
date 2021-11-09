@@ -74,7 +74,7 @@ function foo($ref)
     $function2();
 
     $_SESSION = ['var19' => 1];
-    $GLOBALS = null;
+    $GLOBALS['foo'] = 'bar';
 }
 
 class Test
