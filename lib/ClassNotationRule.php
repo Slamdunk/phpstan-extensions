@@ -41,7 +41,10 @@ final class ClassNotationRule implements Rule
             return $messages;
         }
         $name = $nodeIdentifier->name;
-        if (0 === \strpos($name, 'AnonymousClass')) {
+        if (\str_starts_with($name, 'AnonymousClass')) {
+            return $messages;
+        }
+        if (null === $node->namespacedName) {
             return $messages;
         }
 
@@ -58,7 +61,7 @@ final class ClassNotationRule implements Rule
             $classRef = $this->broker->getClass($fqcn)->getNativeReflection();
 
             if ($classRef->isAbstract()) {
-                if (false !== \strpos($name, '_')) {
+                if (\str_contains($name, '_')) {
                     $match = \preg_match('/_Abstract[^_]+$/', $name);
                 } else {
                     $match = \preg_match('/^Abstract/', $name);

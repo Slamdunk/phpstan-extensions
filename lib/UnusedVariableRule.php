@@ -68,7 +68,7 @@ final class UnusedVariableRule implements Rule
             if (! isset($usedVariables[$varName])) {
                 $messages[] = RuleErrorBuilder::message(\sprintf(
                     '%s has an unused variable $%s.',
-                    \in_array('name', $node->getSubNodeNames(), true) && isset($node->name)
+                    \property_exists($node, 'name')
                         ? \sprintf('Function %s()', $node->name)
                         : 'Closure function',
                     $varName

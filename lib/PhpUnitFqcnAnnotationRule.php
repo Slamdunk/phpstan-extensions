@@ -17,6 +17,7 @@ use PHPStan\Rules\RuleErrorBuilder;
 final class PhpUnitFqcnAnnotationRule implements Rule
 {
     private Broker $broker;
+
     /**
      * @var bool[]
      */

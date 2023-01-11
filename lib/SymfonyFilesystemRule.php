@@ -53,7 +53,7 @@ final class SymfonyFilesystemRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        if (! ($node->name instanceof Name)) {
+        if (! $node->name instanceof Name) {
             return [];
         }
 

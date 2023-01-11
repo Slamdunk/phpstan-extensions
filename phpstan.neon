@@ -1,13 +1,14 @@
 includes:
-    - phar://phpstan.phar/conf/config.levelmax.neon
     - phar://phpstan.phar/conf/bleedingEdge.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-php-parser/extension.neon
     - conf/slam-rules.neon
     - conf/symfony-rules.neon
     - conf/not-now-rules.neon
+    - phpstan-baseline.neon
 
 parameters:
+    level: max
     paths:
         - lib/
         - tests/
@@ -16,12 +17,3 @@ parameters:
             - tests/NotNow/TestAsset/
             - tests/TestAsset/
             - tests/TmpAsset/
-
-services:
-	scopeIsInClass:
-		class: PHPStan\Internal\ScopeIsInClassTypeSpecifyingExtension
-		arguments:
-			isInMethodName: isInClass
-			removeNullMethodName: getClassReflection
-		tags:
-			- phpstan.typeSpecifier.methodTypeSpecifyingExtension
