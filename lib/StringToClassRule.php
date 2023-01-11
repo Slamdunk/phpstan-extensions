@@ -16,10 +16,12 @@ use PHPStan\Rules\Rule;
 final class StringToClassRule implements Rule
 {
     private Broker $broker;
+    private bool $strictCasing;
 
-    public function __construct(Broker $broker)
+    public function __construct(Broker $broker, bool $strictCasing)
     {
         $this->broker = $broker;
+        $this->strictCasing = $strictCasing;
     }
 
     public function getNodeType(): string
@@ -45,7 +47,7 @@ final class StringToClassRule implements Rule
         }
 
         $classRef = $this->broker->getClass($className)->getNativeReflection();
-        if ($classRef->isInternal() && $classRef->getName() !== $className) {
+        if (($classRef->isInternal() || $this->strictCasing) && $classRef->getName() !== $className) {
             return $messages;
         }
 
