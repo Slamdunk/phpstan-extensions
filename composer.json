@@ -1,8 +1,8 @@
 {
     "name": "slam/phpstan-extensions",
-    "type": "phpstan-extension",
     "description": "Slam extension of phpstan",
     "license": "MIT",
+    "type": "phpstan-extension",
     "authors": [
         {
             "name": "Filippo Tessarotto",
@@ -11,26 +11,18 @@
         }
     ],
     "require": {
-        "php": ">=8.0",
-        "nikic/php-parser": "^v4.13.1",
-        "phpstan/phpstan": "^1.1.1"
+        "php": "~8.1.0 || ~8.2.0",
+        "nikic/php-parser": "^4.15.2",
+        "phpstan/phpstan": "^1.9.9"
     },
     "require-dev": {
-        "malukenho/mcbumpface": "^1.1.5",
-        "nette/di": "^v3.0.11",
-        "nette/neon": "^v3.3.1",
-        "phpstan/phpstan-php-parser": "^1.0.0",
-        "phpstan/phpstan-phpunit": "^1.0.0",
-        "phpunit/phpunit": "^9.5.10",
-        "slam/php-cs-fixer-extensions": "^v3.1.0",
-        "slam/php-debug-r": "^v1.7.0"
-    },
-    "extra": {
-        "phpstan": {
-            "includes": [
-                "conf/slam-rules.neon"
-            ]
-        }
+        "nette/di": "^3.1.0",
+        "nette/neon": "^3.3.3",
+        "phpstan/phpstan-php-parser": "^1.1.0",
+        "phpstan/phpstan-phpunit": "^1.3.3",
+        "phpunit/phpunit": "^9.5.27",
+        "slam/php-cs-fixer-extensions": "^3.3.0",
+        "slam/php-debug-r": "^1.7.0"
     },
     "autoload": {
         "psr-4": {
@@ -45,5 +37,12 @@
             "tests/TestAsset/SymfonyFilesystemRule/mkdir.php",
             "tests/TestAsset/SymfonyProcessRule/shell_exec.php"
         ]
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "conf/slam-rules.neon"
+            ]
+        }
     }
 }

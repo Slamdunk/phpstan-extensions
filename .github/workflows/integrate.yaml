@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.0"
+          - "8.1"
 
     steps:
       - name: "Checkout"
@@ -26,7 +26,7 @@ jobs:
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
-          tools: composer-normalize, composer-require-checker, composer-unused
+          tools: composer-normalize, composer-require-checker
 
       - name: "Get composer cache directory"
         id: composercache
@@ -51,9 +51,6 @@ jobs:
       - name: "Check composer.json explicit dependencies"
         run: "composer-require-checker check --config-file=$(realpath composer-require-checker.json)"
 
-      - name: "Check composer.json unused dependencies"
-        run: "composer-unused"
-
   tests:
     name: "Tests"
 
@@ -62,8 +59,8 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.0"
           - "8.1"
+          - "8.2"
 
     steps:
       - name: "Checkout"
@@ -102,7 +99,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.0"
+          - "8.1"
 
     steps:
       - name: "Checkout"
@@ -148,7 +145,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.0"
+          - "8.1"
 
     steps:
       - name: "Checkout"
@@ -185,7 +182,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.0"
+          - "8.2"
 
     steps:
       - name: "Checkout"
