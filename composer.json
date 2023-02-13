@@ -20,7 +20,7 @@
         "nette/neon": "^3.3.3",
         "phpstan/phpstan-php-parser": "^1.1.0",
         "phpstan/phpstan-phpunit": "^1.3.3",
-        "phpunit/phpunit": "^9.5.27",
+        "phpunit/phpunit": "^9.5.27 || ^10.0.0",
         "slam/php-cs-fixer-extensions": "^3.3.0",
         "slam/php-debug-r": "^1.7.0"
     },
