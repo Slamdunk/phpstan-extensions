@@ -1,6 +1,1 @@
 parameters:
-	ignoreErrors:
-		-
-			message: "#^Call to function property_exists\\(\\) with PhpParser\\\\Node\\\\FunctionLike and 'name' will always evaluate to false\\.$#"
-			count: 1
-			path: lib/UnusedVariableRule.php

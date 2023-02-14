@@ -34,7 +34,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
     }
 
     /**
-     * @return RuleError[] errors
+     * @return RuleError[]
      */
     public function processNode(Node $node, Scope $scope): array
     {

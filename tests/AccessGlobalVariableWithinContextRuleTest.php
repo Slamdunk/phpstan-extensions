@@ -6,27 +6,20 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\AccessGlobalVariableWithinContextRule;
 
 /**
- * @covers \SlamPhpStan\AccessGlobalVariableWithinContextRule
- *
  * @extends RuleTestCase<AccessGlobalVariableWithinContextRule>
  */
+#[CoversClass(AccessGlobalVariableWithinContextRule::class)]
 final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
 {
     private string $contextBaseClassOrInterface;
 
-    /**
-     * @param string  $name
-     * @param mixed[] $data
-     * @param string  $dataName
-     */
-    public function __construct($name = null, array $data = [], $dataName = '')
+    protected function setUp(): void
     {
         $this->contextBaseClassOrInterface = TestAsset\AccessGlobalVariableWithinContextRule\YiiAlikeActiveRecordInterface::class;
-
-        parent::__construct($name, $data, $dataName);
     }
 
     protected function getRule(): Rule

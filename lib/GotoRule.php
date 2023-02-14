@@ -20,7 +20,7 @@ final class GotoRule implements Rule
     }
 
     /**
-     * @return string[] errors
+     * @return string[]
      */
     public function processNode(Node $node, Scope $scope): array
     {

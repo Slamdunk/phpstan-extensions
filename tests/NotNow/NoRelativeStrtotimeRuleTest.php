@@ -6,14 +6,15 @@ namespace SlamPhpStan\Tests\NotNow;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use SlamPhpStan\NotNow\ForbiddenRelativeFormats;
 use SlamPhpStan\NotNow\NoRelativeStrtotimeRule;
 
 /**
- * @covers \SlamPhpStan\NotNow\ForbiddenRelativeFormats
- * @covers \SlamPhpStan\NotNow\NoRelativeStrtotimeRule
- *
  * @extends RuleTestCase<NoRelativeStrtotimeRule>
  */
+#[CoversClass(ForbiddenRelativeFormats::class)]
+#[CoversClass(NoRelativeStrtotimeRule::class)]
 final class NoRelativeStrtotimeRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

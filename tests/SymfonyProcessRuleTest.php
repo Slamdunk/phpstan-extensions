@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\SymfonyProcessRule;
 
 /**
- * @covers \SlamPhpStan\SymfonyProcessRule
- *
  * @extends RuleTestCase<SymfonyProcessRule>
  */
+#[CoversClass(SymfonyProcessRule::class)]
 final class SymfonyProcessRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

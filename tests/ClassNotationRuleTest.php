@@ -6,6 +6,7 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\ClassNotationRule;
 
 /**
@@ -13,6 +14,7 @@ use SlamPhpStan\ClassNotationRule;
  *
  * @extends RuleTestCase<ClassNotationRule>
  */
+#[CoversClass(ClassNotationRule::class)]
 final class ClassNotationRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

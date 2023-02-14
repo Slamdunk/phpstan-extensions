@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\UnusedVariableRule;
 
 /**
- * @covers \SlamPhpStan\UnusedVariableRule
- *
  * @extends RuleTestCase<UnusedVariableRule>
  */
+#[CoversClass(UnusedVariableRule::class)]
 final class UnusedVariableRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

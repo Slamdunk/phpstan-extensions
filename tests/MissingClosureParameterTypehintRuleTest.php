@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\MissingClosureParameterTypehintRule;
 
 /**
- * @covers \SlamPhpStan\MissingClosureParameterTypehintRule
- *
  * @extends RuleTestCase<MissingClosureParameterTypehintRule>
  */
+#[CoversClass(MissingClosureParameterTypehintRule::class)]
 final class MissingClosureParameterTypehintRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

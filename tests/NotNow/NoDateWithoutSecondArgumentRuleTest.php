@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests\NotNow;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule;
 
 /**
- * @covers \SlamPhpStan\NotNow\NoDateWithoutSecondArgumentRule
- *
  * @extends RuleTestCase<NoDateWithoutSecondArgumentRule>
  */
+#[CoversClass(NoDateWithoutSecondArgumentRule::class)]
 final class NoDateWithoutSecondArgumentRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

@@ -43,7 +43,7 @@ final class SymfonyProcessRule implements Rule
     /**
      * @param \PhpParser\Node\Expr\FuncCall $node
      *
-     * @return string[] errors
+     * @return string[]
      */
     public function processNode(Node $node, Scope $scope): array
     {

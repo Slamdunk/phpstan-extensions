@@ -2,8 +2,8 @@
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/slam/phpstan-extensions.svg)](https://packagist.org/packages/slam/phpstan-extensions)
 [![Downloads](https://img.shields.io/packagist/dt/slam/phpstan-extensions.svg)](https://packagist.org/packages/slam/phpstan-extensions)
-[![Integrate](https://github.com/Slamdunk/phpstan-extensions/workflows/Integrate/badge.svg?branch=master)](https://github.com/Slamdunk/phpstan-extensions/actions)
-[![Code Coverage](https://codecov.io/gh/Slamdunk/phpstan-extensions/coverage.svg?branch=master)](https://codecov.io/gh/Slamdunk/phpstan-extensions?branch=master)
+[![Integrate](https://github.com/Slamdunk/phpstan-extensions/workflows/CI/badge.svg)](https://github.com/Slamdunk/phpstan-extensions/actions)
+[![Code Coverage](https://codecov.io/gh/Slamdunk/phpstan-extensions/coverage.svg)](https://codecov.io/gh/Slamdunk/phpstan-extensions)
 
 Extensions for [PHPStan](https://phpstan.org/)
 
