@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests\NotNow;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\NotNow\NoTimeRule;
 
 /**
- * @covers \SlamPhpStan\NotNow\NoTimeRule
- *
  * @extends RuleTestCase<NoTimeRule>
  */
+#[CoversClass(NoTimeRule::class)]
 final class NoTimeRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

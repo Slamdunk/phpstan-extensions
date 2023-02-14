@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\SymfonyFilesystemRule;
 
 /**
- * @covers \SlamPhpStan\SymfonyFilesystemRule
- *
  * @extends RuleTestCase<SymfonyFilesystemRule>
  */
+#[CoversClass(SymfonyFilesystemRule::class)]
 final class SymfonyFilesystemRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

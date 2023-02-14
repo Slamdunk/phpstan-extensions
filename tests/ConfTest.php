@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace SlamPhpStan\Tests;
 
 use PHPStan\DependencyInjection\ContainerFactory;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 final class ConfTest extends TestCase
 {
-    /**
-     * @dataProvider confProvider
-     */
+    #[DataProvider('confProvider')]
     public function testConfIsValid(string $filename): void
     {
         $containerFactory = new ContainerFactory(__DIR__);
@@ -24,7 +22,7 @@ final class ConfTest extends TestCase
     /**
      * @return mixed[]
      */
-    public function confProvider(): array
+    public static function confProvider(): array
     {
         $confFolder = \dirname(__DIR__) . '/conf';
         $confs      = \glob($confFolder . '/*.neon');

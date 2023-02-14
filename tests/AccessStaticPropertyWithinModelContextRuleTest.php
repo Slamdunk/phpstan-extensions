@@ -6,6 +6,7 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\AccessStaticPropertyWithinModelContextRule;
 
 /**
@@ -13,23 +14,17 @@ use SlamPhpStan\AccessStaticPropertyWithinModelContextRule;
  *
  * @extends RuleTestCase<AccessStaticPropertyWithinModelContextRule>
  */
+#[CoversClass(AccessStaticPropertyWithinModelContextRule::class)]
 final class AccessStaticPropertyWithinModelContextRuleTest extends RuleTestCase
 {
     private string $modelBaseClassOrInterface;
 
     private string $singletonAccessor;
 
-    /**
-     * @param string  $name
-     * @param mixed[] $data
-     * @param string  $dataName
-     */
-    public function __construct($name = null, array $data = [], $dataName = '')
+    protected function setUp(): void
     {
         $this->modelBaseClassOrInterface = TestAsset\AccessStaticPropertyWithinModelContextRule\YiiAlikeActiveRecordInterface::class;
         $this->singletonAccessor         = TestAsset\AccessStaticPropertyWithinModelContextRule\YiiAlikeBaseYii::class;
-
-        parent::__construct($name, $data, $dataName);
     }
 
     protected function getRule(): Rule

@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\PhpUnitFqcnAnnotationRule;
 
 /**
- * @covers \SlamPhpStan\PhpUnitFqcnAnnotationRule
- *
  * @extends RuleTestCase<PhpUnitFqcnAnnotationRule>
  */
+#[CoversClass(PhpUnitFqcnAnnotationRule::class)]
 final class PhpUnitFqcnAnnotationRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

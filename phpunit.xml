@@ -2,14 +2,16 @@
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-        bootstrap="./vendor/autoload.php"
         colors="true"
-        verbose="true"
+        cacheDirectory=".phpunit.cache"
 >
   <coverage>
     <include>
       <directory suffix=".php">./lib</directory>
     </include>
+    <report>
+      <text outputFile="php://stdout" showOnlySummary="true"/>
+    </report>
   </coverage>
   <testsuite name="SlamPhpStan">
     <directory>./tests</directory>

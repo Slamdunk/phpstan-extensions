@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\GotoRule;
 
 /**
- * @covers \SlamPhpStan\GotoRule
- *
  * @extends RuleTestCase<GotoRule>
  */
+#[CoversClass(GotoRule::class)]
 final class GotoRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

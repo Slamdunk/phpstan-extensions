@@ -6,13 +6,13 @@ namespace SlamPhpStan\Tests;
 
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use SlamPhpStan\StringToClassRule;
 
 /**
- * @covers \SlamPhpStan\StringToClassRule
- *
  * @extends RuleTestCase<StringToClassRule>
  */
+#[CoversClass(StringToClassRule::class)]
 final class StringToClassRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule
