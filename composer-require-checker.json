@@ -9,6 +9,7 @@
     "PHPStan\\Rules\\Rule",
     "PHPStan\\Rules\\RuleErrorBuilder",
     "PHPStan\\Type\\ConstantScalarType",
-    "PHPStan\\Type\\ObjectType"
+    "PHPStan\\Type\\ObjectType",
+    "PHPStan\\Type\\TypeWithClassName"
   ]
 }
