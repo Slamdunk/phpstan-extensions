@@ -27,9 +27,7 @@ final class StringToClassRule implements Rule
         return String_::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         $className = $node->value;

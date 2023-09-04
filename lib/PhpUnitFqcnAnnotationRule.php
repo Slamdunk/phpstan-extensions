@@ -18,9 +18,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
 {
     private Broker $broker;
 
-    /**
-     * @var bool[]
-     */
+    /** @var bool[] */
     private array $alreadyParsedDocComments = [];
 
     public function __construct(Broker $broker)
@@ -33,9 +31,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
         return Node::class;
     }
 
-    /**
-     * @return RuleError[]
-     */
+    /** @return RuleError[] */
     public function processNode(Node $node, Scope $scope): array
     {
         $messages   = [];

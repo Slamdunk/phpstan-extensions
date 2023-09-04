@@ -10,7 +10,7 @@ use PhpParser\Node\Expr\New_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Type\ConstantScalarType;
-use PHPStan\Type\ObjectType;
+use PHPStan\Type\TypeWithClassName;
 
 /**
  * @implements Rule<New_>
@@ -22,13 +22,11 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
         return New_::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         $type = $scope->getType($node);
-        if (! $type instanceof ObjectType) {
+        if (! $type instanceof TypeWithClassName) {
             return [];
         }
 

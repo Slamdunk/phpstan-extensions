@@ -48,9 +48,7 @@ final class SymfonyFilesystemRule implements Rule
         return FuncCall::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! $node->name instanceof Name) {

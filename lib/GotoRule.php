@@ -19,9 +19,7 @@ final class GotoRule implements Rule
         return Goto_::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         return ['No goto, cmon!'];

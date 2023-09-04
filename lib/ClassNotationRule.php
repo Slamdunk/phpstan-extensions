@@ -30,9 +30,7 @@ final class ClassNotationRule implements Rule
         return ClassLike::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         $messages       = [];

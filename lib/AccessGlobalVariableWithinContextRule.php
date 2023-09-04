@@ -42,9 +42,7 @@ final class AccessGlobalVariableWithinContextRule implements Rule
         return Variable::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! \is_string($node->name)) {

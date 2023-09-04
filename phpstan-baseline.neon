@@ -1,1 +1,16 @@
 parameters:
+	ignoreErrors:
+		-
+			message: "#^Doing instanceof PHPStan\\\\Type\\\\ConstantScalarType is error\\-prone and deprecated\\. Use Type\\:\\:isConstantScalarValue\\(\\) or Type\\:\\:getConstantScalarTypes\\(\\) or Type\\:\\:getConstantScalarValues\\(\\) instead\\.$#"
+			count: 1
+			path: lib/NotNow/NoRelativeDateTimeInterfaceRule.php
+
+		-
+			message: "#^Doing instanceof PHPStan\\\\Type\\\\TypeWithClassName is error\\-prone and deprecated\\. Use Type\\:\\:getObjectClassNames\\(\\) or Type\\:\\:getObjectClassReflections\\(\\) instead\\.$#"
+			count: 1
+			path: lib/NotNow/NoRelativeDateTimeInterfaceRule.php
+
+		-
+			message: "#^Doing instanceof PHPStan\\\\Type\\\\ConstantScalarType is error\\-prone and deprecated\\. Use Type\\:\\:isConstantScalarValue\\(\\) or Type\\:\\:getConstantScalarTypes\\(\\) or Type\\:\\:getConstantScalarValues\\(\\) instead\\.$#"
+			count: 1
+			path: lib/NotNow/NoRelativeStrtotimeRule.php

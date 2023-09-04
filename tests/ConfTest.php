@@ -19,9 +19,7 @@ final class ConfTest extends TestCase
         self::assertNotEmpty($containerFactory->create(__DIR__ . '/TmpAsset', [$filename], []));
     }
 
-    /**
-     * @return mixed[]
-     */
+    /** @return mixed[] */
     public static function confProvider(): array
     {
         $confFolder = \dirname(__DIR__) . '/conf';

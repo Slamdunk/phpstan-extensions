@@ -38,9 +38,7 @@ final class UnusedVariableRule implements Rule
         return FunctionLike::class;
     }
 
-    /**
-     * @return RuleError[]
-     */
+    /** @return RuleError[] */
     public function processNode(Node $node, Scope $scope): array
     {
         $messages = [];

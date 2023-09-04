@@ -31,9 +31,7 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
         return StaticPropertyFetch::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! $node->class instanceof Node\Name || ! $node->name instanceof Node\VarLikeIdentifier) {

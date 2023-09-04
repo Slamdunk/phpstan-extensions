@@ -19,9 +19,7 @@ final class MissingClosureParameterTypehintRule implements Rule
         return Closure::class;
     }
 
-    /**
-     * @return string[]
-     */
+    /** @return string[] */
     public function processNode(Node $node, Scope $scope): array
     {
         $messages = [];
