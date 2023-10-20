@@ -1,7 +1,6 @@
 includes:
     - phar://phpstan.phar/conf/bleedingEdge.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
-    - vendor/phpstan/phpstan-php-parser/extension.neon
     - conf/slam-rules.neon
     - conf/symfony-rules.neon
     - conf/not-now-rules.neon
