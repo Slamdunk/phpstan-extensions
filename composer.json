@@ -13,7 +13,7 @@
     "require": {
         "php": "~8.2.0 || ~8.3.0",
         "nikic/php-parser": "^4.18.0",
-        "phpstan/phpstan": "^1.10.54"
+        "phpstan/phpstan": "^1.10.55"
     },
     "require-dev": {
         "nette/di": "^3.1.8",
