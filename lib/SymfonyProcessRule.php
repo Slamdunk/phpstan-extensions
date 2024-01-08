@@ -41,7 +41,7 @@ final class SymfonyProcessRule implements Rule
     }
 
     /**
-     * @param \PhpParser\Node\Expr\FuncCall $node
+     * @param FuncCall $node
      *
      * @return string[]
      */
