@@ -17,7 +17,9 @@ final class UnusedVariableRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule
     {
-        return new UnusedVariableRule();
+        $broker = $this->createBroker();
+
+        return new UnusedVariableRule($broker);
     }
 
     public function testUnusedVariable(): void
@@ -36,16 +38,8 @@ final class UnusedVariableRuleTest extends RuleTestCase
                     49,
                 ],
                 [
-                    'Function foo() has an unused variable $usedInCompact.',
-                    79,
-                ],
-                [
                     'Closure function has an unused variable $var5bis.',
                     27,
-                ],
-                [
-                    'Function foo() has an unused variable $usedInCompact.',
-                    103,
                 ],
             ]
         );

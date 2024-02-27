@@ -80,6 +80,15 @@ function foo($ref)
     compact('usedInCompact');
 }
 
+function bar()
+{
+    $alsoUsedInCompact = 'value';
+
+    if ($alsoUsedInCompact) {
+        compact('alsoUsedInCompact');
+    }
+}
+
 class Test
 {
     function foo(array $numVals)
