@@ -8,10 +8,13 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\ArrowFunction;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Closure;
+use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
+use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PHPStan\Analyser\Scope;
+use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -32,6 +35,10 @@ final class UnusedVariableRule implements Rule
         '_SERVER'  => true,
         '_SESSION' => true,
     ];
+
+    public function __construct(
+        private readonly Broker $broker,
+    ) {}
 
     public function getNodeType(): string
     {
@@ -60,7 +67,7 @@ final class UnusedVariableRule implements Rule
 
         $unusedVariables = [];
         $usedVariables   = [];
-        $this->gatherVariablesUsage($node, $unusedVariables, $usedVariables, $parameters, $node);
+        $this->gatherVariablesUsage($node, $scope, $unusedVariables, $usedVariables, $parameters, $node);
 
         foreach ($unusedVariables as $varName => $var) {
             if (! isset($usedVariables[$varName])) {
@@ -82,7 +89,7 @@ final class UnusedVariableRule implements Rule
      * @param bool[]  $usedVariables
      * @param mixed[] $parameters
      */
-    private function gatherVariablesUsage(Node $node, array & $unusedVariables, array & $usedVariables, array $parameters = [], ?Node $originalNode = null): void
+    private function gatherVariablesUsage(Node $node, Scope $scope, array & $unusedVariables, array & $usedVariables, array $parameters = [], ?Node $originalNode = null): void
     {
         if ($node instanceof FunctionLike
             && $node !== $originalNode
@@ -98,6 +105,9 @@ final class UnusedVariableRule implements Rule
 
             return;
         }
+
+        $this->captureVariablesUsedByCompactFunction($node, $scope, $usedVariables);
+
         if ($node instanceof Assign) {
             if ($node->var instanceof Variable) {
                 if (\is_string($node->var->name) && ! isset($parameters[$node->var->name]) && ! isset(self::GLOBAL_VARIABLES[$node->var->name])) {
@@ -105,13 +115,13 @@ final class UnusedVariableRule implements Rule
                 }
             } else {
                 if (\property_exists($node->var, 'var') && $node->var->var instanceof Node) {
-                    $this->gatherVariablesUsage($node->var->var, $unusedVariables, $usedVariables, $parameters);
+                    $this->gatherVariablesUsage($node->var->var, $scope, $unusedVariables, $usedVariables, $parameters);
                 }
                 if (\property_exists($node->var, 'dim') && $node->var->dim instanceof Node) {
-                    $this->gatherVariablesUsage($node->var->dim, $unusedVariables, $usedVariables, $parameters);
+                    $this->gatherVariablesUsage($node->var->dim, $scope, $unusedVariables, $usedVariables, $parameters);
                 }
                 if (\property_exists($node->var, 'name') && $node->var->name instanceof Node) {
-                    $this->gatherVariablesUsage($node->var->name, $unusedVariables, $usedVariables, $parameters);
+                    $this->gatherVariablesUsage($node->var->name, $scope, $unusedVariables, $usedVariables, $parameters);
                 }
             }
         }
@@ -121,7 +131,7 @@ final class UnusedVariableRule implements Rule
             } elseif ($node->name instanceof String_) {
                 $usedVariables[$node->name->value] = true;
             } else {
-                $this->gatherVariablesUsage($node->name, $unusedVariables, $usedVariables, $parameters);
+                $this->gatherVariablesUsage($node->name, $scope, $unusedVariables, $usedVariables, $parameters);
             }
         }
 
@@ -130,14 +140,44 @@ final class UnusedVariableRule implements Rule
                 continue;
             }
             if ($node->{$nodeName} instanceof Node) {
-                $this->gatherVariablesUsage($node->{$nodeName}, $unusedVariables, $usedVariables, $parameters);
+                $this->gatherVariablesUsage($node->{$nodeName}, $scope, $unusedVariables, $usedVariables, $parameters);
             } elseif (\is_iterable($node->{$nodeName})) {
                 foreach ($node->{$nodeName} as $subNode) {
                     if ($subNode instanceof Node) {
-                        $this->gatherVariablesUsage($subNode, $unusedVariables, $usedVariables, $parameters);
+                        $this->gatherVariablesUsage($subNode, $scope, $unusedVariables, $usedVariables, $parameters);
                     }
                 }
             }
         }
+    }
+
+    /** @param bool[] $usedVariables */
+    private function captureVariablesUsedByCompactFunction(Node $node, Scope $scope, array & $usedVariables): void
+    {
+        if (! $this->isCompactFunction($node, $scope)) {
+            return;
+        }
+        // @phpstan-ignore-next-line: $node->args is valid due to $node being instanceof FuncCall
+        foreach ($node->args as $arg) {
+            if ($arg->value instanceof String_) {
+                $usedVariables[$arg->value->value] = true;
+            }
+        }
+    }
+
+    private function isCompactFunction(Node $node, Scope $scope): bool
+    {
+        if (! $node instanceof FuncCall) {
+            return false;
+        }
+        if (! $node->name instanceof Name) {
+            return false;
+        }
+        if (! $this->broker->hasFunction($node->name, $scope)) {
+            return false;
+        }
+        $calledFunctionName = $this->broker->resolveFunctionName($node->name, $scope);
+
+        return 'compact' === $calledFunctionName;
     }
 }

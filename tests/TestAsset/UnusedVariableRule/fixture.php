@@ -75,6 +75,18 @@ function foo($ref)
 
     $_SESSION = ['var19' => 1];
     $GLOBALS['foo'] = 'bar';
+
+    $usedInCompact = 'value';
+    compact('usedInCompact');
+}
+
+function bar()
+{
+    $alsoUsedInCompact = 'value';
+
+    if ($alsoUsedInCompact) {
+        compact('alsoUsedInCompact');
+    }
 }
 
 class Test
@@ -96,6 +108,9 @@ class Test
             $this->key = 1;
             $this->key2();
         }
+
+        $usedInCompact = 'value';
+        compact('usedInCompact');
     }
 }
 

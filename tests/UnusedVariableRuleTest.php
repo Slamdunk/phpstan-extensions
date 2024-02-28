@@ -17,7 +17,9 @@ final class UnusedVariableRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule
     {
-        return new UnusedVariableRule();
+        $broker = $this->createBroker();
+
+        return new UnusedVariableRule($broker);
     }
 
     public function testUnusedVariable(): void
