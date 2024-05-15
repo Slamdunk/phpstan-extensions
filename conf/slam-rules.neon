@@ -1,3 +1,12 @@
+parameters:
+    stringToClassRule:
+        strictCasing: false
+
+parametersSchema:
+    stringToClassRule: structure([
+        strictCasing: bool()
+    ])
+
 services:
     -
         class: SlamPhpStan\ClassNotationRule
@@ -15,6 +24,8 @@ services:
         class: SlamPhpStan\StringToClassRule
         tags:
             - phpstan.rules.rule
+        arguments:
+            strictCasing: %stringToClassRule.strictCasing%
     -
         class: SlamPhpStan\UnusedVariableRule
         tags:
