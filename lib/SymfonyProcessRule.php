@@ -10,6 +10,8 @@ use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<FuncCall>
@@ -43,7 +45,7 @@ final class SymfonyProcessRule implements Rule
     /**
      * @param FuncCall $node
      *
-     * @return string[]
+     * @return list<RuleError>
      */
     public function processNode(Node $node, Scope $scope): array
     {
@@ -60,6 +62,6 @@ final class SymfonyProcessRule implements Rule
             return [];
         }
 
-        return [\sprintf('Function %s is unsafe to use, rely on Symfony\Process component instead.', $calledFunctionName)];
+        return [RuleErrorBuilder::message(\sprintf('Function %s is unsafe to use, rely on Symfony\Process component instead.', $calledFunctionName))->identifier('syscall.unsafe')->build()];
     }
 }

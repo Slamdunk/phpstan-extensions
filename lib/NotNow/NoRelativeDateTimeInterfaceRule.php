@@ -9,6 +9,8 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\New_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\ConstantScalarType;
 use PHPStan\Type\TypeWithClassName;
 
@@ -22,7 +24,7 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
         return New_::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
         $type = $scope->getType($node);
@@ -37,12 +39,10 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
         $args = $node->getArgs();
 
         if (0 === \count($args)) {
-            return [
-                \sprintf(
-                    'Instantiating %s without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
-                    DateTimeInterface::class
-                ),
-            ];
+            return [RuleErrorBuilder::message(\sprintf(
+                'Instantiating %s without the first argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+                DateTimeInterface::class,
+            ))->identifier('newdate.implicitTime.forbidden')->build()];
         }
 
         $argType = $scope->getType($args[0]->value);
@@ -55,12 +55,10 @@ final class NoRelativeDateTimeInterfaceRule implements Rule
             return [];
         }
 
-        return [
-            \sprintf(
-                'Instantiating %s with relative datetime "%s" is forbidden, rely on a clock abstraction like lcobucci/clock',
-                DateTimeInterface::class,
-                $value
-            ),
-        ];
+        return [RuleErrorBuilder::message(\sprintf(
+            'Instantiating %s with relative datetime "%s" is forbidden, rely on a clock abstraction like lcobucci/clock',
+            DateTimeInterface::class,
+            $value,
+        ))->identifier('newdate.relativeTime.forbidden')->build()];
     }
 }

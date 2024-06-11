@@ -10,6 +10,8 @@ use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<FuncCall>
@@ -48,7 +50,7 @@ final class SymfonyFilesystemRule implements Rule
         return FuncCall::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! $node->name instanceof Name) {
@@ -64,10 +66,10 @@ final class SymfonyFilesystemRule implements Rule
             return [];
         }
 
-        return [\sprintf(
+        return [RuleErrorBuilder::message(\sprintf(
             'Function %s is unsafe to use, rely on Symfony component Filesystem::%s instead.',
             $calledFunctionName,
             \implode(' or Filesystem::', self::CALL_MAP[$calledFunctionName])
-        )];
+        ))->identifier('filesystemcall.unsafe')->build()];
     }
 }
