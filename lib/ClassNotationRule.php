@@ -12,6 +12,8 @@ use PhpParser\Node\Stmt\Trait_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<ClassLike>
@@ -30,23 +32,23 @@ final class ClassNotationRule implements Rule
         return ClassLike::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
-        $messages       = [];
         $nodeIdentifier = $node->name;
         if (null === $nodeIdentifier) {
-            return $messages;
+            return [];
         }
         $name = $nodeIdentifier->name;
         if (\str_starts_with($name, 'AnonymousClass')) {
-            return $messages;
+            return [];
         }
         if (null === $node->namespacedName) {
-            return $messages;
+            return [];
         }
 
-        $fqcn = $node->namespacedName->toString();
+        $messages = [];
+        $fqcn     = $node->namespacedName->toString();
         if ($node instanceof Interface_) {
             if (! \preg_match('/Interface$/', $name)) {
                 $messages[] = \sprintf('Interface %s should end with "Interface" suffix.', $fqcn);
@@ -75,6 +77,8 @@ final class ClassNotationRule implements Rule
             }
         }
 
-        return $messages;
+        return \array_map(static function (string $message): RuleError {
+            return RuleErrorBuilder::message($message)->identifier('classNotation')->build();
+        }, $messages);
     }
 }

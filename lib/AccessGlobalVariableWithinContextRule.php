@@ -9,6 +9,8 @@ use PhpParser\Node\Expr\Variable;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<Variable>
@@ -42,7 +44,7 @@ final class AccessGlobalVariableWithinContextRule implements Rule
         return Variable::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! \is_string($node->name)) {
@@ -64,12 +66,12 @@ final class AccessGlobalVariableWithinContextRule implements Rule
 
         $modelBaseClassOrInterface = $this->broker->getClass($this->contextBaseClassOrInterface);
 
-        return [\sprintf(
+        return [RuleErrorBuilder::message(\sprintf(
             'Class %s %s %s and uses $%s: accessing globals in this context is considered an anti-pattern',
             $classReflection->getDisplayName(),
             $modelBaseClassOrInterface->isInterface() ? 'implements' : 'extends',
             $this->contextBaseClassOrInterface,
             $node->name
-        )];
+        ))->identifier('globalAccess.outOfContext')->build()];
     }
 }

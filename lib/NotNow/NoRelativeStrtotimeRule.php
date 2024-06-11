@@ -9,6 +9,8 @@ use PhpParser\Node\Expr\FuncCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 use PHPStan\Type\ConstantScalarType;
 
 /**
@@ -28,7 +30,7 @@ final class NoRelativeStrtotimeRule implements Rule
         return FuncCall::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! $node->name instanceof Node\Name) {
@@ -55,11 +57,9 @@ final class NoRelativeStrtotimeRule implements Rule
             return [];
         }
 
-        return [
-            \sprintf(
-                'Calling strtotime() with relative datetime "%s" without the second argument is forbidden, rely on a clock abstraction like lcobucci/clock',
-                $value
-            ),
-        ];
+        return [RuleErrorBuilder::message(\sprintf(
+            'Calling strtotime() with relative datetime "%s" without the second argument is forbidden, rely on a clock abstraction like lcobucci/clock',
+            $value,
+        ))->identifier('strtotimecall.implicitTime.forbidden')->build()];
     }
 }

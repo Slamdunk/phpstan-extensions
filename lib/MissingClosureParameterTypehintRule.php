@@ -8,6 +8,8 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\Closure;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<Closure>
@@ -19,7 +21,7 @@ final class MissingClosureParameterTypehintRule implements Rule
         return Closure::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
         $messages = [];
@@ -29,7 +31,11 @@ final class MissingClosureParameterTypehintRule implements Rule
                 continue;
             }
 
-            $messages[] = \sprintf('Parameter #%d $%s of anonymous function has no typehint.', 1 + $index, $param->var->name);
+            $messages[] = RuleErrorBuilder::message(\sprintf(
+                'Parameter #%d $%s of anonymous function has no typehint.',
+                1 + $index,
+                $param->var->name,
+            ))->identifier('typehintMissing.anonymousFunction')->build();
         }
 
         return $messages;

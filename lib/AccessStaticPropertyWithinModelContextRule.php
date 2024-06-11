@@ -9,6 +9,8 @@ use PhpParser\Node\Expr\StaticPropertyFetch;
 use PHPStan\Analyser\Scope;
 use PHPStan\Broker\Broker;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleError;
+use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<StaticPropertyFetch>
@@ -31,7 +33,7 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
         return StaticPropertyFetch::class;
     }
 
-    /** @return string[] */
+    /** @return list<RuleError> */
     public function processNode(Node $node, Scope $scope): array
     {
         if (! $node->class instanceof Node\Name || ! $node->name instanceof Node\VarLikeIdentifier) {
@@ -59,13 +61,13 @@ final class AccessStaticPropertyWithinModelContextRule implements Rule
 
         $modelBaseClassOrInterface = $this->broker->getClass($this->modelBaseClassOrInterface);
 
-        return [\sprintf(
+        return [RuleErrorBuilder::message(\sprintf(
             'Class %s %s %s and uses %s::$%s: accessing a singleton in this context is considered an anti-pattern',
             $classReflection->getDisplayName(),
             $modelBaseClassOrInterface->isInterface() ? 'implements' : 'extends',
             $this->modelBaseClassOrInterface,
             $this->singletonAccessor,
             (string) $node->name
-        )];
+        ))->identifier('singletonAccess.outOfContext')->build()];
     }
 }
