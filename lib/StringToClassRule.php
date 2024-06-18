@@ -36,7 +36,7 @@ final class StringToClassRule implements Rule
         if (isset($className[0]) && '\\' === $className[0]) {
             $className = \substr($className, 1);
         }
-        if (! \preg_match('/^\\w.+\\w$/u', $className)) {
+        if (! \preg_match('/^\w.+\w$/u', $className)) {
             return [];
         }
         if (! $this->broker->hasClass($className)) {

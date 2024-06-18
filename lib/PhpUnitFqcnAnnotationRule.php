@@ -57,7 +57,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
         }
         foreach ($lines as $lineNumber => $lineContent) {
             $matches = [];
-            if (! \preg_match('/^(?:\s*\*\s*@(?:expectedException|covers|coversDefaultClass|uses)\h+)\\\\?(?<className>\w[^:\s]*)(?:::\S+)?\s*$/u', $lineContent, $matches)) {
+            if (! \preg_match('/^(?:\s*\*\s*@(?:expectedException|covers|coversDefaultClass|uses)\h+)\\\?(?<className>\w[^:\s]*)(?:::\S+)?\s*$/u', $lineContent, $matches)) {
                 continue;
             }
             if (! $this->broker->hasClass($matches['className'])) {
