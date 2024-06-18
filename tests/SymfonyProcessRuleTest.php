@@ -30,15 +30,15 @@ final class SymfonyProcessRuleTest extends RuleTestCase
             ],
             [
                 [
-                    'Function shell_exec is unsafe to use, rely on Symfony\\Process component instead.',
+                    'Function shell_exec is unsafe to use, rely on Symfony\Process component instead.',
                     11,
                 ],
                 [
-                    'Function passthru is unsafe to use, rely on Symfony\\Process component instead.',
+                    'Function passthru is unsafe to use, rely on Symfony\Process component instead.',
                     12,
                 ],
                 [
-                    'Function proc_open is unsafe to use, rely on Symfony\\Process component instead.',
+                    'Function proc_open is unsafe to use, rely on Symfony\Process component instead.',
                     13,
                 ],
             ]
