@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "nette/di": "^3.2.2",
-        "nette/neon": "^3.4.2",
+        "nette/neon": "^3.4.3",
         "phpstan/phpstan-phpunit": "^1.4.0",
         "phpunit/phpunit": "^11.2.5",
         "slam/php-cs-fixer-extensions": "^3.11.1"
