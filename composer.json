@@ -12,12 +12,12 @@
     ],
     "require": {
         "php": "~8.2.0 || ~8.3.0",
-        "nikic/php-parser": "^4.19.1 || ^5.0.2",
         "phpstan/phpstan": "^1.11.8"
     },
     "require-dev": {
         "nette/di": "^3.2.2",
         "nette/neon": "^3.4.3",
+        "nikic/php-parser": "^4.19.1 || ^5.0.2",
         "phpstan/phpstan-phpunit": "^1.4.0",
         "phpunit/phpunit": "^11.2.9",
         "slam/php-cs-fixer-extensions": "^3.11.1"
