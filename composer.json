@@ -11,16 +11,16 @@
         }
     ],
     "require": {
-        "php": "~8.2.0 || ~8.3.0",
+        "php": "~8.3.0 || ~8.4.0",
         "phpstan/phpstan": "^1.12.4"
     },
     "require-dev": {
         "nette/di": "^3.2.2",
         "nette/neon": "^3.4.3",
-        "nikic/php-parser": "^4.19.1 || ^5.0.2",
+        "nikic/php-parser": "^4.19.2 || ^5.2.0",
         "phpstan/phpstan-phpunit": "^1.4.0",
         "phpunit/phpunit": "^11.3.6",
-        "slam/php-cs-fixer-extensions": "^3.11.1"
+        "slam/php-cs-fixer-extensions": "^3.12.0"
     },
     "autoload": {
         "psr-4": {
