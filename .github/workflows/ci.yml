@@ -27,7 +27,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           ini-values: "${{ env.INI_VALUES }}"
           tools: composer-normalize,composer-require-checker
-      - uses: "ramsey/composer-install@v2"
+      - uses: "ramsey/composer-install@v3"
 
       - run: "composer validate --strict"
       - run: "composer-normalize --dry-run"
@@ -53,7 +53,9 @@ jobs:
           coverage: "${{ matrix.code-coverage }}"
           php-version: "${{ matrix.php-version }}"
           ini-values: "${{ env.INI_VALUES }}"
-      - uses: "ramsey/composer-install@v2"
+      - uses: "ramsey/composer-install@v3"
+        with:
+          composer-options: "--ignore-platform-req=php"
 
       - run: "vendor/bin/phpunit --no-coverage --no-logging"
         if: ${{ matrix.code-coverage == 'none' }}
@@ -86,7 +88,7 @@ jobs:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
           ini-values: "${{ env.INI_VALUES }}"
-      - uses: "ramsey/composer-install@v2"
+      - uses: "ramsey/composer-install@v3"
 
       - run: "vendor/bin/php-cs-fixer fix --verbose --dry-run --diff"
 
@@ -105,6 +107,6 @@ jobs:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
           ini-values: "${{ env.INI_VALUES }}"
-      - uses: "ramsey/composer-install@v2"
+      - uses: "ramsey/composer-install@v3"
 
       - run: "vendor/bin/phpstan analyse --no-progress --error-format=github"
