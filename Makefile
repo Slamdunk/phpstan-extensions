@@ -1,4 +1,4 @@
-DOCKER_PHP_EXEC := docker compose run php
+DOCKER_PHP_EXEC := docker compose run --rm php
 PHP_BIN=php -d zend.assertions=1
 
 all: csfix static-analysis test
