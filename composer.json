@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "nette/di": "^3.2.2",
-        "nette/neon": "^3.4.3",
+        "nette/neon": "^3.4.4",
         "nikic/php-parser": "^4.19.2 || ^5.2.0",
         "phpstan/phpstan-phpunit": "^1.4.0",
         "phpunit/phpunit": "^11.3.6",
