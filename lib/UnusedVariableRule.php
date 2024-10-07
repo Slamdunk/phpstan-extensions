@@ -14,7 +14,7 @@ use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PHPStan\Analyser\Scope;
-use PHPStan\Broker\Broker;
+use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -37,7 +37,7 @@ final class UnusedVariableRule implements Rule
     ];
 
     public function __construct(
-        private readonly Broker $broker,
+        private readonly ReflectionProvider $broker,
     ) {}
 
     public function getNodeType(): string
@@ -157,7 +157,7 @@ final class UnusedVariableRule implements Rule
         if (! $this->isCompactFunction($node, $scope)) {
             return;
         }
-        // @phpstan-ignore-next-line: $node->args is valid due to $node being instanceof FuncCall
+
         foreach ($node->args as $arg) {
             if ($arg->value instanceof String_) {
                 $usedVariables[$arg->value->value] = true;
