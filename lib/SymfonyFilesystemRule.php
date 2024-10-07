@@ -8,7 +8,7 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
-use PHPStan\Broker\Broker;
+use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -38,9 +38,9 @@ final class SymfonyFilesystemRule implements Rule
         'file_put_contents' => ['dumpFile', 'appendToFile'],
     ];
 
-    private Broker $broker;
+    private ReflectionProvider $broker;
 
-    public function __construct(Broker $broker)
+    public function __construct(ReflectionProvider $broker)
     {
         $this->broker = $broker;
     }

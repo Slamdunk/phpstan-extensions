@@ -17,7 +17,7 @@ final class SymfonyProcessRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule
     {
-        $broker = $this->createBroker();
+        $broker = $this->createReflectionProvider();
 
         return new SymfonyProcessRule($broker);
     }

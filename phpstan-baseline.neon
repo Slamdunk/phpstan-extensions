@@ -1,21 +1,55 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Doing instanceof PHPStan\\\\Type\\\\ConstantScalarType is error\\-prone and deprecated\\. Use Type\\:\\:isConstantScalarValue\\(\\) or Type\\:\\:getConstantScalarTypes\\(\\) or Type\\:\\:getConstantScalarValues\\(\\) instead\\.$#"
+			message: '#^Doing instanceof PHPStan\\Type\\ConstantScalarType is error\-prone and deprecated\. Use Type\:\:isConstantScalarValue\(\) or Type\:\:getConstantScalarTypes\(\) or Type\:\:getConstantScalarValues\(\) instead\.$#'
+			identifier: phpstanApi.instanceofType
 			count: 1
 			path: lib/NotNow/NoRelativeDateTimeInterfaceRule.php
 
 		-
-			message: "#^Doing instanceof PHPStan\\\\Type\\\\TypeWithClassName is error\\-prone and deprecated\\. Use Type\\:\\:getObjectClassNames\\(\\) or Type\\:\\:getObjectClassReflections\\(\\) instead\\.$#"
+			message: '#^Doing instanceof PHPStan\\Type\\TypeWithClassName is error\-prone and deprecated\. Use Type\:\:getObjectClassNames\(\) or Type\:\:getObjectClassReflections\(\) instead\.$#'
+			identifier: phpstanApi.instanceofType
 			count: 1
 			path: lib/NotNow/NoRelativeDateTimeInterfaceRule.php
 
 		-
-			message: "#^Doing instanceof PHPStan\\\\Type\\\\ConstantScalarType is error\\-prone and deprecated\\. Use Type\\:\\:isConstantScalarValue\\(\\) or Type\\:\\:getConstantScalarTypes\\(\\) or Type\\:\\:getConstantScalarValues\\(\\) instead\\.$#"
+			message: '#^Doing instanceof PHPStan\\Type\\ConstantScalarType is error\-prone and deprecated\. Use Type\:\:isConstantScalarValue\(\) or Type\:\:getConstantScalarTypes\(\) or Type\:\:getConstantScalarValues\(\) instead\.$#'
+			identifier: phpstanApi.instanceofType
 			count: 1
 			path: lib/NotNow/NoRelativeStrtotimeRule.php
 
 		-
-			message: "#^Cannot call method getAttribute\\(\\) on mixed\\.$#"
+			message: '#^Access to an undefined property PhpParser\\Node\:\:\$args\.$#'
+			identifier: property.notFound
+			count: 1
+			path: lib/UnusedVariableRule.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: lib/UnusedVariableRule.php
+
+		-
+			message: '#^Cannot access property \$value on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: lib/UnusedVariableRule.php
+
+		-
+			message: '#^Cannot call method getAttribute\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: lib/UnusedVariableRule.php
+
+		-
+			message: '#^Parameter \#1 \$line of method PHPStan\\Rules\\RuleErrorBuilder\<PHPStan\\Rules\\RuleError\>\:\:line\(\) expects int, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: lib/UnusedVariableRule.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: lib/UnusedVariableRule.php
