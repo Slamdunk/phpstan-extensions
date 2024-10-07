@@ -24,7 +24,7 @@ final class AccessGlobalVariableWithinContextRuleTest extends RuleTestCase
 
     protected function getRule(): Rule
     {
-        $broker = $this->createBroker();
+        $broker = $this->createReflectionProvider();
 
         return new AccessGlobalVariableWithinContextRule($broker, $this->contextBaseClassOrInterface);
     }

@@ -7,7 +7,7 @@ namespace SlamPhpStan;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Variable;
 use PHPStan\Analyser\Scope;
-use PHPStan\Broker\Broker;
+use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -30,10 +30,10 @@ final class AccessGlobalVariableWithinContextRule implements Rule
         'argc'     => true,
         'argv'     => true,
     ];
-    private Broker $broker;
+    private ReflectionProvider $broker;
     private string $contextBaseClassOrInterface;
 
-    public function __construct(Broker $broker, string $contextBaseClassOrInterface)
+    public function __construct(ReflectionProvider $broker, string $contextBaseClassOrInterface)
     {
         $this->broker                       = $broker;
         $this->contextBaseClassOrInterface  = $contextBaseClassOrInterface;

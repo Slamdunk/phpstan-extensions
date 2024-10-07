@@ -10,7 +10,7 @@ use PhpParser\Node\Stmt\ClassLike;
 use PhpParser\Node\Stmt\Interface_;
 use PhpParser\Node\Stmt\Trait_;
 use PHPStan\Analyser\Scope;
-use PHPStan\Broker\Broker;
+use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -20,9 +20,9 @@ use PHPStan\Rules\RuleErrorBuilder;
  */
 final class ClassNotationRule implements Rule
 {
-    private Broker $broker;
+    private ReflectionProvider $broker;
 
-    public function __construct(Broker $broker)
+    public function __construct(ReflectionProvider $broker)
     {
         $this->broker = $broker;
     }
