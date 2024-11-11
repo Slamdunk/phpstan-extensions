@@ -7,7 +7,7 @@ namespace SlamPhpStan;
 use PhpParser\Node;
 use PhpParser\Node\Expr\StaticPropertyFetch;
 use PHPStan\Analyser\Scope;
-use PHPStan\Broker\Broker;
+use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -17,11 +17,11 @@ use PHPStan\Rules\RuleErrorBuilder;
  */
 final class AccessStaticPropertyWithinModelContextRule implements Rule
 {
-    private Broker $broker;
+    private ReflectionProvider $broker;
     private string $modelBaseClassOrInterface;
     private string $singletonAccessor;
 
-    public function __construct(Broker $broker, string $modelBaseClassOrInterface, string $singletonAccessor)
+    public function __construct(ReflectionProvider $broker, string $modelBaseClassOrInterface, string $singletonAccessor)
     {
         $this->broker                    = $broker;
         $this->modelBaseClassOrInterface = $modelBaseClassOrInterface;
