@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversNothing]
 final class ConfTest extends TestCase
 {
-    #[DataProvider('confProvider')]
+    #[DataProvider('provideConfIsValidCases')]
     public function testConfIsValid(string $filename): void
     {
         $containerFactory = new ContainerFactory(__DIR__);
@@ -20,7 +20,7 @@ final class ConfTest extends TestCase
     }
 
     /** @return mixed[] */
-    public static function confProvider(): array
+    public static function provideConfIsValidCases(): iterable
     {
         $confFolder = \dirname(__DIR__) . '/conf';
         $confs      = \glob($confFolder . '/*.neon');
