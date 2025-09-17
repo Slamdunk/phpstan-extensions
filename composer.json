@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": "~8.3.0 || ~8.4.0",
-        "phpstan/phpstan": "^2.1.26"
+        "phpstan/phpstan": "^2.1.27"
     },
     "require-dev": {
         "nette/di": "^3.2.4",
