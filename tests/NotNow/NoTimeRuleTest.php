@@ -35,6 +35,14 @@ final class NoTimeRuleTest extends RuleTestCase
                     'Calling time() directly is forbidden, rely on a clock abstraction like lcobucci/clock',
                     7,
                 ],
+                [
+                    'Calling microtime() directly is forbidden, rely on a clock abstraction like lcobucci/clock',
+                    17,
+                ],
+                [
+                    'Calling microtime() directly is forbidden, rely on a clock abstraction like lcobucci/clock',
+                    18,
+                ],
             ]
         );
     }
