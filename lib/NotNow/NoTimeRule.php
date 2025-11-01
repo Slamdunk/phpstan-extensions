@@ -36,10 +36,16 @@ final class NoTimeRule implements Rule
             return [];
         }
 
-        if ('time' !== $this->reflectionProvider->resolveFunctionName($node->name, $scope)) {
+        $functionName = $this->reflectionProvider->resolveFunctionName($node->name, $scope);
+
+        if (! \in_array($functionName, ['time', 'microtime'], true)) {
             return [];
         }
 
-        return [RuleErrorBuilder::message('Calling time() directly is forbidden, rely on a clock abstraction like lcobucci/clock')->identifier('timecall.forbidden')->build()];
+        return [
+            RuleErrorBuilder::message(
+                \sprintf('Calling %s() directly is forbidden, rely on a clock abstraction like lcobucci/clock', $functionName)
+            )
+                ->identifier('timecall.forbidden')->build()];
     }
 }

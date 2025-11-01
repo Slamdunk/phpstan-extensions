@@ -63,7 +63,7 @@ These rules forbid:
 1. `new DateTimeImmutable()`
 1. `new DateTime('yesterday')`
 1. `date('Y-m-d')`
-1. `time()`
+1. `time()`, `microtime()`
 1. `strtotime('noon')`
 
 You should instead rely on a clock abstraction like [`lcobucci/clock`](https://github.com/lcobucci/clock).
