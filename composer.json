@@ -12,14 +12,14 @@
     ],
     "require": {
         "php": "~8.4.0 || ~8.5.0",
-        "phpstan/phpstan": "^2.1.32"
+        "phpstan/phpstan": "^2.1.33"
     },
     "require-dev": {
         "nette/di": "^3.2.5",
         "nette/neon": "^3.4.6",
         "nikic/php-parser": "^4.19.2 || ^5.6.2",
-        "phpstan/phpstan-phpunit": "^2.0.8",
-        "phpunit/phpunit": "^12.4.5",
+        "phpstan/phpstan-phpunit": "^2.0.9",
+        "phpunit/phpunit": "^12.5.0",
         "slam/php-cs-fixer-extensions": "^3.14.0"
     },
     "autoload": {
