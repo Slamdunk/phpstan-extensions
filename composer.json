@@ -19,7 +19,7 @@
         "nette/neon": "^3.4.7",
         "nikic/php-parser": "^4.19.2 || ^5.6.2",
         "phpstan/phpstan-phpunit": "^2.0.16",
-        "phpunit/phpunit": "^13.0.3",
+        "phpunit/phpunit": "^13.0.4",
         "slam/php-cs-fixer-extensions": "^3.14.0"
     },
     "autoload": {
