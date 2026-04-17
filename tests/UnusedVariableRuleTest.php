@@ -7,7 +7,6 @@ namespace SlamPhpStan\Tests;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\RequiresPhp;
 use SlamPhpStan\UnusedVariableRule;
 
 /**
@@ -46,7 +45,6 @@ final class UnusedVariableRuleTest extends RuleTestCase
         );
     }
 
-    #[RequiresPhp('>=7.4')]
     public function testUnusedVariable74(): void
     {
         $this->analyse(
