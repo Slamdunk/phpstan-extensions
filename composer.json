@@ -15,7 +15,7 @@
         "phpstan/phpstan": "^2.1.54"
     },
     "require-dev": {
-        "nette/di": "^3.2.5",
+        "nette/di": "^3.2.6",
         "nette/neon": "^3.4.7",
         "nikic/php-parser": "^4.19.2 || ^5.7.0",
         "phpstan/phpstan-phpunit": "^2.0.16",
