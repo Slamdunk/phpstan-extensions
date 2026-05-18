@@ -61,7 +61,7 @@ final class PhpUnitFqcnAnnotationRule implements Rule
                 continue;
             }
             if (! $this->broker->hasClass($matches['className'])) {
-                $messages[] = RuleErrorBuilder::message(\sprintf('Class %s does not exist.', $matches['className']))->line($docComment->getStartLine() + $lineNumber)->build();
+                $messages[] = RuleErrorBuilder::message(\sprintf('Class %s does not exist.', $matches['className']))->identifier('phpunit.annotationClassNotFound')->line($docComment->getStartLine() + $lineNumber)->build();
             }
         }
 

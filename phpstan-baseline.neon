@@ -43,7 +43,7 @@ parameters:
 			path: lib/UnusedVariableRule.php
 
 		-
-			message: '#^Parameter \#1 \$line of method PHPStan\\Rules\\RuleErrorBuilder\<PHPStan\\Rules\\RuleError\>\:\:line\(\) expects int, mixed given\.$#'
+			message: '#^Parameter \#1 \$line of method PHPStan\\Rules\\RuleErrorBuilder\<PHPStan\\Rules\\IdentifierRuleError\>\:\:line\(\) expects int, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: lib/UnusedVariableRule.php
