@@ -77,7 +77,7 @@ final class UnusedVariableRule implements Rule
                         ? \sprintf('Function %s()', $node->name)
                         : 'Closure function',
                     $varName
-                ))->line($var->getAttribute('startLine'))->build();
+                ))->identifier('variable.unused')->line($var->getAttribute('startLine'))->build();
             }
         }
 
