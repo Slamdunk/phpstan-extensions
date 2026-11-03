@@ -58,7 +58,7 @@ final class SymfonyProcessRule implements Rule
         }
 
         $calledFunctionName = $this->broker->resolveFunctionName($node->name, $scope);
-        if (! isset(self::CALL_MAP[$calledFunctionName])) {
+        if (null === $calledFunctionName || ! isset(self::CALL_MAP[$calledFunctionName])) {
             return [];
         }
 
